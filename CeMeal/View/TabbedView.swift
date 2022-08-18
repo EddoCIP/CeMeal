@@ -8,29 +8,36 @@
 import SwiftUI
 
 struct TabbedView: View {
+    @FetchRequest(sortDescriptors: []) var ingredients : FetchedResults <Ingredient>
+    
     @State private var selection: Int = 0
     
     var body: some View {
         TabView(selection: $selection) {
             StorageView()
                 .tabItem {
-                    Image(systemName: "house.fill")
+                    Image(systemName: "archivebox")
                     Text("Storage")
                 }
                 .tag(0)
             
             GroceryView()
                 .tabItem {
-                    Image(systemName: "list.bullet")
+                    Image(systemName: "doc.append")
                     Text("List")
                 }
                 .tag(1)
             HistoryView()
                 .tabItem {
-                    Image(systemName: "clock.arrow.circlepath")
+                    Image(systemName: "signpost.left")
                     Text("History")
                 }
                 .tag(2)
+        }
+        .onAppear {
+            if ingredients.isEmpty {
+//                loadIngredientFromCSV()
+            }
         }
     }
 }

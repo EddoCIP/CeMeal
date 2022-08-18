@@ -11,11 +11,11 @@ struct ContentView: View {
     @State var goToTabbedView: Bool = UserDefaults.standard.bool(forKey: "opened_once")
 
     var body: some View {
-        if goToTabbedView {
+//        if goToTabbedView {
             TabbedView()
-        } else {
-            
-        }
+//        } else {
+//            
+//        }
     }
 }
 
