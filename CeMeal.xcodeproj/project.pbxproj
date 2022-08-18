@@ -13,6 +13,10 @@
 		FDF531E428AE3CBA006CC337 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDF531E328AE3CBA006CC337 /* Preview Assets.xcassets */; };
 		FDF531E628AE3CBA006CC337 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF531E528AE3CBA006CC337 /* Persistence.swift */; };
 		FDF531E928AE3CBA006CC337 /* CeMeal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDF531E728AE3CBA006CC337 /* CeMeal.xcdatamodeld */; };
+		FDF531F828AE40CD006CC337 /* TabbedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF531F728AE40CD006CC337 /* TabbedView.swift */; };
+		FDF531FC28AE412E006CC337 /* StorageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF531FB28AE412E006CC337 /* StorageView.swift */; };
+		FDF531FE28AE413E006CC337 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF531FD28AE413E006CC337 /* HistoryView.swift */; };
+		FDF5320028AE4147006CC337 /* GroceryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF531FF28AE4147006CC337 /* GroceryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		FDF531E328AE3CBA006CC337 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FDF531E528AE3CBA006CC337 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		FDF531E828AE3CBA006CC337 /* CeMeal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CeMeal.xcdatamodel; sourceTree = "<group>"; };
+		FDF531F728AE40CD006CC337 /* TabbedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedView.swift; sourceTree = "<group>"; };
+		FDF531FB28AE412E006CC337 /* StorageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageView.swift; sourceTree = "<group>"; };
+		FDF531FD28AE413E006CC337 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		FDF531FF28AE4147006CC337 /* GroceryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +63,12 @@
 		FDF531DB28AE3CB9006CC337 /* CeMeal */ = {
 			isa = PBXGroup;
 			children = (
+				FDF531F328AE3D21006CC337 /* Helper */,
+				FDF531F228AE3D17006CC337 /* SharedComponent */,
+				FDF531F128AE3D04006CC337 /* View */,
+				FDF531F028AE3CFC006CC337 /* ViewModel */,
+				FDF531EF28AE3CF8006CC337 /* Model */,
 				FDF531DC28AE3CB9006CC337 /* CeMealApp.swift */,
-				FDF531DE28AE3CB9006CC337 /* ContentView.swift */,
 				FDF531E028AE3CBA006CC337 /* Assets.xcassets */,
 				FDF531E528AE3CBA006CC337 /* Persistence.swift */,
 				FDF531E728AE3CBA006CC337 /* CeMeal.xcdatamodeld */,
@@ -71,6 +83,70 @@
 				FDF531E328AE3CBA006CC337 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FDF531EF28AE3CF8006CC337 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FDF531F028AE3CFC006CC337 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FDF531F128AE3D04006CC337 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FDF531F628AE3DEC006CC337 /* HistoryView */,
+				FDF531F528AE3DD1006CC337 /* StorageView */,
+				FDF531F428AE3DC2006CC337 /* GroceryView */,
+				FDF531DE28AE3CB9006CC337 /* ContentView.swift */,
+				FDF531F728AE40CD006CC337 /* TabbedView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FDF531F228AE3D17006CC337 /* SharedComponent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SharedComponent;
+			sourceTree = "<group>";
+		};
+		FDF531F328AE3D21006CC337 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		FDF531F428AE3DC2006CC337 /* GroceryView */ = {
+			isa = PBXGroup;
+			children = (
+				FDF531FF28AE4147006CC337 /* GroceryView.swift */,
+			);
+			path = GroceryView;
+			sourceTree = "<group>";
+		};
+		FDF531F528AE3DD1006CC337 /* StorageView */ = {
+			isa = PBXGroup;
+			children = (
+				FDF531FB28AE412E006CC337 /* StorageView.swift */,
+			);
+			path = StorageView;
+			sourceTree = "<group>";
+		};
+		FDF531F628AE3DEC006CC337 /* HistoryView */ = {
+			isa = PBXGroup;
+			children = (
+				FDF531FD28AE413E006CC337 /* HistoryView.swift */,
+			);
+			path = HistoryView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,7 +219,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDF531FE28AE413E006CC337 /* HistoryView.swift in Sources */,
+				FDF531FC28AE412E006CC337 /* StorageView.swift in Sources */,
+				FDF5320028AE4147006CC337 /* GroceryView.swift in Sources */,
 				FDF531E628AE3CBA006CC337 /* Persistence.swift in Sources */,
+				FDF531F828AE40CD006CC337 /* TabbedView.swift in Sources */,
 				FDF531DF28AE3CB9006CC337 /* ContentView.swift in Sources */,
 				FDF531E928AE3CBA006CC337 /* CeMeal.xcdatamodeld in Sources */,
 				FDF531DD28AE3CB9006CC337 /* CeMealApp.swift in Sources */,

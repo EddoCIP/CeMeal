@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ConsumedIngredient" representedClassName="ConsumedIngredient" syncable="YES" codeGenerationType="class">
+        <attribute name="consumedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="consumeToIngredient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="ingredientToConsume" inverseEntity="Ingredient"/>
+    </entity>
+    <entity name="Grocery" representedClassName="Grocery" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isDone" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="groceryToIngredient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="ingredientToGrocery" inverseEntity="Ingredient"/>
+    </entity>
+    <entity name="Ingredient" representedClassName="Ingredient" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="ingredientToConsume" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ConsumedIngredient" inverseName="consumeToIngredient" inverseEntity="ConsumedIngredient"/>
+        <relationship name="ingredientToGrocery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Grocery" inverseName="groceryToIngredient" inverseEntity="Grocery"/>
+        <relationship name="ingredientToStorage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Storage" inverseName="storedIngredient" inverseEntity="Storage"/>
+        <relationship name="ingredientToTrash" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrashedIngredient" inverseName="trashToIngredient" inverseEntity="TrashedIngredient"/>
+    </entity>
+    <entity name="Storage" representedClassName="Storage" syncable="YES" codeGenerationType="class">
+        <attribute name="expireDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="storedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="storedIngredient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="ingredientToStorage" inverseEntity="Ingredient"/>
+    </entity>
+    <entity name="TrashedIngredient" representedClassName="TrashedIngredient" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="trashedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="trashToIngredient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="ingredientToTrash" inverseEntity="Ingredient"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="Ingredient" positionX="-54" positionY="-9" width="128" height="149"/>
+        <element name="Grocery" positionX="-36" positionY="36" width="128" height="89"/>
+        <element name="TrashedIngredient" positionX="-18" positionY="81" width="128" height="89"/>
+        <element name="Storage" positionX="0" positionY="99" width="128" height="104"/>
+        <element name="ConsumedIngredient" positionX="18" positionY="126" width="128" height="89"/>
     </elements>
 </model>
