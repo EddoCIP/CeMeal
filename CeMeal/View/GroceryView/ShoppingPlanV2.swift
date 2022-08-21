@@ -28,13 +28,13 @@ struct ShoppingPlanV2: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
                 Text("LIST INGREDIENTS")
-                    .font(.custom("SF Compact Display", size: 20))
+                    .compactFont(size: 20)
                     .fontWeight(.semibold)
-                    .foregroundColor(Color.semiDarkGray)
-                LazyVGrid(columns: columns) {
+                    .foregroundColor(Color.semiDarkGray.opacity(0.5))
+                LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(IngredientCategoryEnum.allCases, id: \.self) { category in
                         let items = ingredientVM.groupedIngredientByCategory[category.rawValue] ?? []
-                        CategoryView(title: category.rawValue, count: items.count)
+                        IngredientCategoryView(title: category.rawValue, count: items.count)
                             .onTapGesture {
                                 self.groupItem = items
                                 self.groupCategory = category.rawValue
@@ -46,7 +46,7 @@ struct ShoppingPlanV2: View {
         }
         .padding(.horizontal)
         .sheet(isPresented: $isSheetActive) {
-            IngredientListV2(selectedIngredients: $selectedIngredients, ingredientList: $groupItem, categoryName: $groupCategory)
+            IngredientList(selectedIngredients: $selectedIngredients, ingredientList: $groupItem, categoryName: $groupCategory)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -64,101 +64,6 @@ struct ShoppingPlanV2: View {
         .navigationTitle("Your shopping plan")
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
-    }
-}
-
-struct CategoryView: View {
-    var title: String
-    var count: Int
-    
-    var body: some View {
-        ZStack {
-            RoundedCorner(radius: 15, corners: .allCorners)
-                .fill(Color.gray)
-                .opacity(0.5)
-            VStack {
-                Image(systemName: "house.fill")
-                Text("\(count) item(s)")
-                    .font(.caption)
-            }
-            .padding()
-        }
-        .frame(width: 100, height: 100)
-    }
-}
-
-struct IngredientListV2: View {
-    @Environment(\.presentationMode) var presentationMode
-    
-    @ObservedObject var groceryVM: GroceryViewModel = .init()
-    
-    @State var searchKeyword : String = ""
-    
-    @Binding var selectedIngredients : [Ingredient]
-    @Binding var ingredientList: [Ingredient]
-    @Binding var categoryName: String
-    
-    let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible())
-    ]
-    
-    var body: some View {
-        NavigationView {
-            VStack {
-                LazyVGrid(columns: columns) {
-                    ForEach(searchResult) { item in
-                        let isActive = self.selectedIngredients.contains(item)
-                        
-                        IngredientPlanItem(ingredient: item, isActive: isActive) {
-                            if isActive {
-                                self.selectedIngredients.removeAll { $0.id?.uuidString == item.id?.uuidString
-                                }
-                            } else {
-                                self.selectedIngredients.append(item)
-                            }
-                        }
-                    }
-                }
-                Spacer()
-                    .searchable(text: $searchKeyword, placement: .navigationBarDrawer(displayMode: .always), prompt: "What ingredients do you need?")
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button {
-                                if !selectedIngredients.isEmpty {
-                                    groceryVM.saveIngredientsToGrocery(ingredients: selectedIngredients)
-                                }
-                                self.presentationMode.wrappedValue.dismiss()
-                            } label: {
-                                Text("Add To List")
-                            }
-                        }
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button {
-                                self.presentationMode.wrappedValue.dismiss()
-                            } label: {
-                                Text("Close")
-                                    .foregroundColor(Color.red)
-                            }
-                        }
-                    }
-            }
-            .background(Color.lightGray)
-            .navigationTitle(categoryName)
-            .navigationBarTitleDisplayMode(.inline)
-        }
-    }
-    
-    var searchResult: [Ingredient] {
-        if searchKeyword.isEmpty {
-            return ingredientList
-        } else {
-            return ingredientList.filter { item in
-                return String(item.name ?? "").contains(searchKeyword)
-            }
-        }
     }
 }
 

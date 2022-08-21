@@ -15,9 +15,11 @@ struct IngredientPlanItem: View {
     var body: some View {
         VStack {
             Text("\(ingredient.name ?? "Unknown")")
+                .multilineTextAlignment(.center)
+                .lineLimit(0)
                 .foregroundColor(Color.darkGreen)
-                .font(.system(size: 15))
-                .bold()
+                .font(.system(size: 15, weight: .bold, design: .default))
+//                .bold()
             Spacer()
             AsyncImage(url: URL(string: ingredient.imageUrl ?? "")) { phase in
                 if let image = phase.image {

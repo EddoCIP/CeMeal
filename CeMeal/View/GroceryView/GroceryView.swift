@@ -38,10 +38,13 @@ struct GroceryView: View {
                     .shadow(radius: 10)
                 
                 if groceries.isEmpty {
-                    VStack {
+                    VStack(spacing: 30) {
                         Spacer()
                         Image("shoppingCart")
                         Text("no shopping plan")
+                            .foregroundColor(Color.lightOrange)
+                            .font(.callout)
+                            .bold()
                         Spacer()
                     }
                 } else {
@@ -59,7 +62,7 @@ struct GroceryView: View {
                     Text("")
                 }
             }
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
             .padding(.horizontal)
             .sheet(isPresented: $isShowSheet) {
                 GroceryShoppingPlan()
