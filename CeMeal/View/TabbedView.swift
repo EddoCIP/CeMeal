@@ -33,10 +33,17 @@ struct TabbedView: View {
                     Text("History")
                 }
                 .tag(2)
+            ShoppingPlanV2()
+                .tabItem {
+                    Image(systemName: "signpost.left")
+                    Text("Shopping Plan V2")
+                }
+                .tag(3)
         }
         .onAppear {
             if ingredients.isEmpty {
-//                loadIngredientFromCSV()
+                print("masuk")
+                loadIngredientFromCSV()
             }
         }
     }

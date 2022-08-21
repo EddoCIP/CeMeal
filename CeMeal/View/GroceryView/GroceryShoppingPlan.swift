@@ -28,41 +28,41 @@ struct GroceryShoppingPlan: View {
             ScrollView {
                 ForEach(IngredientCategoryEnum.allCases, id: \.self) { category in
                     let items = ingredientVM.groupedIngredientByCategory[category.rawValue] ?? []
-                    DisclosureGroup(category.rawValue) {
+                    DisclosureGroup {
                         LazyVGrid(columns: columns) {
                             ForEach(items) { item in
                                 let isActive = self.selectedIngredients.contains(item)
                                 
-                                IngredientPlanItem(isActive: isActive) {
+                                IngredientPlanItem(ingredient: item, isActive: isActive) {
                                     if isActive {
-                                        self.selectedIngredients.removeAll { $0.id?.uuidString == ""
+                                        self.selectedIngredients.removeAll { $0.id?.uuidString == item.id?.uuidString
                                         }
                                     } else {
-                                        self.selectedIngredients.append(Ingredient())
+                                        self.selectedIngredients.append(item)
                                     }
                                 }
                             }
                         }
-                    }
-                }
-                
-                DisclosureGroup("Fruit", isExpanded: $isExpand) {
-                    LazyVGrid(columns: columns) {
-                        ForEach((1...10), id: \.self) { item in
-                            let isActive = self.selectedIngredients.contains(Ingredient())
-                            
-                            IngredientPlanItem(isActive: isActive) {
-                                if isActive {
-                                    self.selectedIngredients.removeAll { $0.id?.uuidString == ""
-                                    }
-                                } else {
-                                    self.selectedIngredients.append(Ingredient())
-                                }
+                    } label: {
+                        HStack {
+                            Image(systemName: "house")
+                            VStack (alignment: .leading) {
+                                Text("\(category.rawValue)")
+                                    .font(.system(.title2, design: .rounded))
+                                    .bold()
+                                Text("caption")
+                                    .font(.body)
                             }
+                            Spacer()
+                            Text("\(items.count) item(s)")
+                                .font(.system(.title2, design: .rounded))
                         }
+                        .foregroundColor(Color.categoryTitleColor)
+                        .padding()
                     }
+                    Divider()
                 }
-                .searchable(text: $ingredientVM.searchQuery, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search")
+                .searchable(text: $ingredientVM.searchQuery, placement: .navigationBarDrawer(displayMode: .always), prompt: "What ingredients you need to buy?")
                 .onChange(of: ingredientVM.searchQuery) { _ in
                     ingredientVM.searchIngredient()
                 }
@@ -70,9 +70,10 @@ struct GroceryShoppingPlan: View {
                     ingredientVM.searchIngredient()
                 }
             }
+            .padding(.horizontal)
             .navigationTitle("Shopping Plan")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(false)
+            .navigationBarBackButtonHidden(true)
             .navigationBarHidden(false)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -80,6 +81,7 @@ struct GroceryShoppingPlan: View {
                         if !selectedIngredients.isEmpty {
                             groceryVM.saveIngredientsToGrocery(ingredients: selectedIngredients)
                         }
+                        self.presentationMode.wrappedValue.dismiss()
                     } label: {
                         Text("Add")
                     }
@@ -88,7 +90,8 @@ struct GroceryShoppingPlan: View {
                     Button {
                         self.presentationMode.wrappedValue.dismiss()
                     } label: {
-                        Text("< Back")
+                        Text("Close")
+                            .foregroundColor(Color.red)
                     }
                 }
             }

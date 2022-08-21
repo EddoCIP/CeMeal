@@ -8,5 +8,13 @@
 import Foundation
 
 enum IngredientCategoryEnum: String, CaseIterable {
-    case fruits = "Fruits", grains = "Grains", Vegetables = "Vegetables"
+    case fruits = "Fruits"
+    case vegetables = "Vegetables"
+    case animalProduct = "Animal Products"
+    case grainNuts = "Grains & Nuts"
+    case herbSpices = "Herb and Spices"
+    case liquidOils = "Liquid and Oils"
+    case milkDairy = "Milk and dairy products"
+    case mushrooms = "Mushrooms"
+    case tubers = "Tubers"
 }

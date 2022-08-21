@@ -10,7 +10,7 @@ import CoreData
 
 func loadIngredientFromCSV() {
     let context = PersistenceController.shared.container.viewContext
-    guard let filePath = Bundle.main.path(forResource: "Ingredients", ofType: "csv") else { return }
+    guard let filePath = Bundle.main.path(forResource: "ingredients", ofType: "csv") else { return }
     
     var data = ""
     do {
@@ -20,18 +20,18 @@ func loadIngredientFromCSV() {
         return
     }
     
-    var rows = data.components(separatedBy: "\n")
+    var rows : [String] = data.components(separatedBy: "\n")
     let columnCount = rows.first?.components(separatedBy: ",").count
     rows.removeFirst()
     
     for row in rows {
-        let csvColumns = row.components(separatedBy: ",")
+        let csvColumns : [String] = row.components(separatedBy: ",")
         if csvColumns.count == columnCount {
             let ingredient = Ingredient(context: context)
             ingredient.id = UUID()
-            ingredient.name = ""
-            ingredient.category = ""
-            ingredient.imageUrl = ""
+            ingredient.name = csvColumns[1]
+            ingredient.category = csvColumns[0]
+            ingredient.imageUrl = csvColumns[5]
         }
     }
     

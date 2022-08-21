@@ -11,19 +11,25 @@ struct GroceryItem: View {
     var grocery: Grocery
     
     var body: some View {
-        HStack {
-            Image(systemName: "house")
-            Text("\(grocery.groceryToIngredient?.name ?? "Unknown")")
-            Spacer()
-            Divider()
-            Stepper("") {
+        ZStack(alignment: .topLeading) {
+            RoundedCorner(radius: 8, corners: [.topLeft, .bottomLeft])
+                .fill(Color.listColor)
+            HStack {
+                Image(systemName: "house")
+                Text("\(grocery.groceryToIngredient?.name ?? "Unknown")")
+                    .font(.system(.body, design: .rounded))
+                    .bold()
+                Spacer()
+                Divider()
+                Stepper("") {
+                    
+                } onDecrement: {
+                    
+                }
+                .frame(width: 150)
                 
-            } onDecrement: {
-                
-            }
-            .frame(width: 150)
-
-        }.padding()
+            }.padding()
+        }
     }
 }
 

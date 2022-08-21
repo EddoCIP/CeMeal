@@ -13,6 +13,12 @@ class IngredientViewModel: ObservableObject {
     @Published var searchResult : [Ingredient] = []
     @Published var searchQuery : String = ""
     
+    init() {
+        loadIngredient()
+        print(ingredientList)
+//        searchIngredient()
+    }
+    
     func loadIngredient() {
         let moc = PersistenceController.shared.container.viewContext
         
@@ -46,6 +52,6 @@ class IngredientViewModel: ObservableObject {
     }
     
     var groupedIngredientByCategory: Dictionary<String, [Array<Ingredient>.Element]> {
-        return Dictionary(grouping: searchResult) { $0.category ?? "" }
+        return Dictionary(grouping: ingredientList) { $0.category ?? "" }
     }
 }

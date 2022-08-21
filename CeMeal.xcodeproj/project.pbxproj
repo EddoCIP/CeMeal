@@ -26,6 +26,10 @@
 		FDF5321028AE542F006CC337 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5320F28AE542F006CC337 /* Extension.swift */; };
 		FDF5321228AE5566006CC337 /* IngredientPlanItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5321128AE5566006CC337 /* IngredientPlanItem.swift */; };
 		FDF5321428AE8E16006CC337 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5321328AE8E16006CC337 /* Enums.swift */; };
+		FDF5321628AF6411006CC337 /* ingredients.csv in Resources */ = {isa = PBXBuildFile; fileRef = FDF5321528AF6411006CC337 /* ingredients.csv */; };
+		FDF5321828AF6FB8006CC337 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5321728AF6FB8006CC337 /* RoundedCorner.swift */; };
+		FDF5321C28AFC8FD006CC337 /* ShoppingPlanV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5321B28AFC8FD006CC337 /* ShoppingPlanV2.swift */; };
+		FDF5321F28B27C7E006CC337 /* SF-Compact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDF5321E28B27C7E006CC337 /* SF-Compact.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +53,11 @@
 		FDF5320F28AE542F006CC337 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		FDF5321128AE5566006CC337 /* IngredientPlanItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientPlanItem.swift; sourceTree = "<group>"; };
 		FDF5321328AE8E16006CC337 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		FDF5321528AF6411006CC337 /* ingredients.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ingredients.csv; sourceTree = "<group>"; };
+		FDF5321728AF6FB8006CC337 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		FDF5321B28AFC8FD006CC337 /* ShoppingPlanV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingPlanV2.swift; sourceTree = "<group>"; };
+		FDF5321E28B27C7E006CC337 /* SF-Compact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact.ttf"; sourceTree = "<group>"; };
+		FDF5322228B27D2B006CC337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +90,8 @@
 		FDF531DB28AE3CB9006CC337 /* CeMeal */ = {
 			isa = PBXGroup;
 			children = (
+				FDF5322228B27D2B006CC337 /* Info.plist */,
+				FDF5321D28B27C6D006CC337 /* Fonts */,
 				FDF531F328AE3D21006CC337 /* Helper */,
 				FDF531F228AE3D17006CC337 /* SharedComponent */,
 				FDF531F128AE3D04006CC337 /* View */,
@@ -135,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				FDF5320D28AE509D006CC337 /* RoundedImage.swift */,
+				FDF5321728AF6FB8006CC337 /* RoundedCorner.swift */,
 			);
 			path = SharedComponent;
 			sourceTree = "<group>";
@@ -143,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				FDF5320328AE44E8006CC337 /* DataInitialization.swift */,
+				FDF5321528AF6411006CC337 /* ingredients.csv */,
 				FDF5320F28AE542F006CC337 /* Extension.swift */,
 				FDF5321328AE8E16006CC337 /* Enums.swift */,
 			);
@@ -156,6 +169,7 @@
 				FDF5320728AE4991006CC337 /* GroceryShoppingPlan.swift */,
 				FDF5320B28AE4FA0006CC337 /* GroceryItem.swift */,
 				FDF5321128AE5566006CC337 /* IngredientPlanItem.swift */,
+				FDF5321B28AFC8FD006CC337 /* ShoppingPlanV2.swift */,
 			);
 			path = GroceryView;
 			sourceTree = "<group>";
@@ -174,6 +188,14 @@
 				FDF531FD28AE413E006CC337 /* HistoryView.swift */,
 			);
 			path = HistoryView;
+			sourceTree = "<group>";
+		};
+		FDF5321D28B27C6D006CC337 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FDF5321E28B27C7E006CC337 /* SF-Compact.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,8 +256,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDF5321628AF6411006CC337 /* ingredients.csv in Resources */,
 				FDF531E428AE3CBA006CC337 /* Preview Assets.xcassets in Resources */,
 				FDF531E128AE3CBA006CC337 /* Assets.xcassets in Resources */,
+				FDF5321F28B27C7E006CC337 /* SF-Compact.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +275,7 @@
 				FDF531FC28AE412E006CC337 /* StorageView.swift in Sources */,
 				FDF5320C28AE4FA0006CC337 /* GroceryItem.swift in Sources */,
 				FDF5320228AE44BA006CC337 /* GroceryViewModel.swift in Sources */,
+				FDF5321C28AFC8FD006CC337 /* ShoppingPlanV2.swift in Sources */,
 				FDF5321428AE8E16006CC337 /* Enums.swift in Sources */,
 				FDF5320028AE4147006CC337 /* GroceryView.swift in Sources */,
 				FDF5321228AE5566006CC337 /* IngredientPlanItem.swift in Sources */,
@@ -258,6 +283,7 @@
 				FDF531E628AE3CBA006CC337 /* Persistence.swift in Sources */,
 				FDF531F828AE40CD006CC337 /* TabbedView.swift in Sources */,
 				FDF531DF28AE3CB9006CC337 /* ContentView.swift in Sources */,
+				FDF5321828AF6FB8006CC337 /* RoundedCorner.swift in Sources */,
 				FDF5320E28AE509D006CC337 /* RoundedImage.swift in Sources */,
 				FDF5320428AE44E8006CC337 /* DataInitialization.swift in Sources */,
 				FDF5320A28AE4F55006CC337 /* IngredientViewModel.swift in Sources */,
@@ -394,9 +420,11 @@
 				DEVELOPMENT_TEAM = FANN368M5W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CeMeal/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -423,9 +451,11 @@
 				DEVELOPMENT_TEAM = FANN368M5W;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CeMeal/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

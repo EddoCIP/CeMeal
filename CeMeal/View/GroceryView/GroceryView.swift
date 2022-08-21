@@ -11,6 +11,9 @@ struct GroceryView: View {
     @State var isShowSheet: Bool = false
     
     @ObservedObject var groceryVM: GroceryViewModel = .init()
+    @FetchRequest(sortDescriptors: []) var groceries : FetchedResults <Grocery>
+    
+    @State var isNavActive: Bool = false
     
     var body: some View {
         NavigationView {
@@ -19,33 +22,55 @@ struct GroceryView: View {
                     Spacer()
                 }
                 .frame(height: UINavigationBar.appearance().bounds.height)
-                
-                List {
-                    ForEach(groceryVM.groceryList) { item in
-                        GroceryItem(grocery: item)
-                    }
-                }
-                .navigationTitle("Grocery List")
-                .navigationBarTitleDisplayMode(.large)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            isShowSheet.toggle()
-                        } label: {
-                            Image(systemName: "plus.circle.fill")
+                HStack {
+                    Text("Grocery List")
+                        .font(.system(size: 34, weight: .bold, design: .rounded))
+                        .foregroundColor(Color.darkGreen)
+                    Spacer()
+                    Image(systemName: "plus.square")
+                        .font(.custom("SF Compact Display", size: 36))
+                        .foregroundColor(Color.darkGreen)
+                        .onTapGesture {
+                            isNavActive.toggle()
                         }
+                }
+                Divider()
+                    .shadow(radius: 10)
+                
+                if groceries.isEmpty {
+                    VStack {
+                        Spacer()
+                        Image("shoppingCart")
+                        Text("no shopping plan")
+                        Spacer()
                     }
+                } else {
+                    List {
+                        ForEach(groceries) { item in
+                            GroceryItem(grocery: item)
+                        }
+                    }.listStyle(.plain)
                 }
             }
+            .background {
+                NavigationLink(isActive: $isNavActive) {
+                    ShoppingPlanV2()
+                } label: {
+                    Text("")
+                }
+            }
+            .navigationBarTitleDisplayMode(.large)
+            .padding(.horizontal)
             .sheet(isPresented: $isShowSheet) {
                 GroceryShoppingPlan()
             }
         }
     }
 }
-
-struct GroceryView_Previews: PreviewProvider {
-    static var previews: some View {
-        GroceryView()
-    }
-}
+//
+//struct GroceryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GroceryView()
+//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//    }
+//}
