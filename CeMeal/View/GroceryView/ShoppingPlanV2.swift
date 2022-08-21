@@ -44,6 +44,9 @@ struct ShoppingPlanV2: View {
                 }
             }
         }
+        .onAppear {
+            ingredientVM.loadIngredient()
+        }
         .padding(.horizontal)
         .sheet(isPresented: $isSheetActive) {
             IngredientList(selectedIngredients: $selectedIngredients, ingredientList: $groupItem, categoryName: $groupCategory)

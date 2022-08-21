@@ -12,19 +12,28 @@ struct IngredientCategoryView: View {
     var count: Int
     
     var body: some View {
-        ZStack {
-            RoundedCorner(radius: 15, corners: .allCorners)
-                .fill(Color.white)
-                .shadow(radius: 5)
-            VStack {
-                Image(systemName: "house.fill")
-                Spacer()
+        VStack {
+                ZStack {
+                    Color.gray
+                        .ignoresSafeArea()
+                    Image("shoppingCart")
+                        .resizable()
+                    Text(title)
+                        .font(.body)
+                        .fontWeight(.heavy)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(Color.white)
+                }
                 Text("\(count) item(s)")
+                    .foregroundColor(Color.darkGreen.opacity(0.6))
                     .font(.caption)
+                    .bold()
+                    .padding(.bottom, 4)
             }
-            .padding()
-        }
-        .frame(width: 100, height: 100)
+            .background(Color.white)
+            .cornerRadius(7)
+            .frame(width: 100, height: 100)
+            .shadow(radius: 5)
     }
 }
 

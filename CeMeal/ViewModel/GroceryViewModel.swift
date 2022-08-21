@@ -11,6 +11,10 @@ import CoreData
 class GroceryViewModel: ObservableObject {
     @Published var groceryList: [Grocery] = []
     
+    init() {
+        loadGrocery()
+    }
+    
     func loadGrocery() {
         let moc = PersistenceController.shared.container.viewContext
         

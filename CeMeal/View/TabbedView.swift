@@ -27,22 +27,21 @@ struct TabbedView: View {
                     Text("List")
                 }
                 .tag(1)
-            HistoryView()
-                .tabItem {
-                    Image(systemName: "signpost.left")
-                    Text("History")
-                }
-                .tag(2)
-            ShoppingPlanV2()
-                .tabItem {
-                    Image(systemName: "signpost.left")
-                    Text("Shopping Plan V2")
-                }
-                .tag(3)
+//            HistoryView()
+//                .tabItem {
+//                    Image(systemName: "signpost.left")
+//                    Text("History")
+//                }
+//                .tag(2)
+//            ShoppingPlanV2()
+//                .tabItem {
+//                    Image(systemName: "signpost.left")
+//                    Text("Shopping Plan V2")
+//                }
+//                .tag(3)
         }
         .onAppear {
             if ingredients.isEmpty {
-                print("masuk")
                 loadIngredientFromCSV()
             }
         }

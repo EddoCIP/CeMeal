@@ -16,10 +16,9 @@ struct IngredientPlanItem: View {
         VStack {
             Text("\(ingredient.name ?? "Unknown")")
                 .multilineTextAlignment(.center)
-                .lineLimit(0)
+                .lineLimit(2)
                 .foregroundColor(Color.darkGreen)
-                .font(.system(size: 15, weight: .bold, design: .default))
-//                .bold()
+                .font(.system(size: 15, weight: .semibold, design: .default))
             Spacer()
             AsyncImage(url: URL(string: ingredient.imageUrl ?? "")) { phase in
                 if let image = phase.image {
@@ -39,30 +38,10 @@ struct IngredientPlanItem: View {
                     .stroke(isActive ? Color.green : Color.gray, lineWidth: isActive ? 10: 1)
             )
             .cornerRadius(90)
-            
         }
+        .fixedSize(horizontal: false, vertical: true)
         .onTapGesture {
             action()
-        }
-    }
-    
-    //    @ViewBuilder
-    //    func showIngredientItem() ->
-}
-
-struct IngredientImage: View {
-    var url: URL?
-    
-    var body: some View {
-        AsyncImage(url: url) { phase in
-            if let image = phase.image {
-                image
-            } else if phase.error != nil {
-                //MARK: TO DO change to white image
-                Image(systemName: "photo")
-            } else {
-                ProgressView()
-            }
         }
     }
 }

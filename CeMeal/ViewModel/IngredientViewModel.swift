@@ -15,7 +15,6 @@ class IngredientViewModel: ObservableObject {
     
     init() {
         loadIngredient()
-        print(ingredientList)
 //        searchIngredient()
     }
     
