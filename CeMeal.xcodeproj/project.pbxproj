@@ -57,7 +57,6 @@
 		FDF5321728AF6FB8006CC337 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		FDF5321B28AFC8FD006CC337 /* ShoppingPlanV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingPlanV2.swift; sourceTree = "<group>"; };
 		FDF5321E28B27C7E006CC337 /* SF-Compact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact.ttf"; sourceTree = "<group>"; };
-		FDF5322228B27D2B006CC337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +89,6 @@
 		FDF531DB28AE3CB9006CC337 /* CeMeal */ = {
 			isa = PBXGroup;
 			children = (
-				FDF5322228B27D2B006CC337 /* Info.plist */,
 				FDF5321D28B27C6D006CC337 /* Fonts */,
 				FDF531F328AE3D21006CC337 /* Helper */,
 				FDF531F228AE3D17006CC337 /* SharedComponent */,
