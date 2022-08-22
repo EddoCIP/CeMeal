@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FDAA35F428B35768006FD911 /* StorageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA35F328B35768006FD911 /* StorageListView.swift */; };
+		FDAA35F728B3600C006FD911 /* NewYork.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDAA35F528B3600C006FD911 /* NewYork.ttf */; };
+		FDAA35F828B3600C006FD911 /* NewYorkItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDAA35F628B3600C006FD911 /* NewYorkItalic.ttf */; };
 		FDF531DD28AE3CB9006CC337 /* CeMealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF531DC28AE3CB9006CC337 /* CeMealApp.swift */; };
 		FDF531DF28AE3CB9006CC337 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF531DE28AE3CB9006CC337 /* ContentView.swift */; };
 		FDF531E128AE3CBA006CC337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDF531E028AE3CBA006CC337 /* Assets.xcassets */; };
@@ -32,9 +35,15 @@
 		FDF5321F28B27C7E006CC337 /* SF-Compact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDF5321E28B27C7E006CC337 /* SF-Compact.ttf */; };
 		FDF5322628B28A6D006CC337 /* IngredientList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5322528B28A6D006CC337 /* IngredientList.swift */; };
 		FDF5322828B28B3C006CC337 /* IngredientCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5322728B28B3C006CC337 /* IngredientCategoryView.swift */; };
+		FDF5322A28B33989006CC337 /* StorageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5322928B33989006CC337 /* StorageViewModel.swift */; };
+		FDF5322D28B355D8006CC337 /* Storage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5322B28B355D8006CC337 /* Storage+CoreDataClass.swift */; };
+		FDF5322E28B355D8006CC337 /* Storage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5322C28B355D8006CC337 /* Storage+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FDAA35F328B35768006FD911 /* StorageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageListView.swift; sourceTree = "<group>"; };
+		FDAA35F528B3600C006FD911 /* NewYork.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYork.ttf; sourceTree = "<group>"; };
+		FDAA35F628B3600C006FD911 /* NewYorkItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYorkItalic.ttf; sourceTree = "<group>"; };
 		FDF531D928AE3CB9006CC337 /* CeMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CeMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDF531DC28AE3CB9006CC337 /* CeMealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeMealApp.swift; sourceTree = "<group>"; };
 		FDF531DE28AE3CB9006CC337 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,6 +70,9 @@
 		FDF5321E28B27C7E006CC337 /* SF-Compact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Compact.ttf"; sourceTree = "<group>"; };
 		FDF5322528B28A6D006CC337 /* IngredientList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientList.swift; sourceTree = "<group>"; };
 		FDF5322728B28B3C006CC337 /* IngredientCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCategoryView.swift; sourceTree = "<group>"; };
+		FDF5322928B33989006CC337 /* StorageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageViewModel.swift; sourceTree = "<group>"; };
+		FDF5322B28B355D8006CC337 /* Storage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		FDF5322C28B355D8006CC337 /* Storage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storage+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +131,8 @@
 		FDF531EF28AE3CF8006CC337 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FDF5322B28B355D8006CC337 /* Storage+CoreDataClass.swift */,
+				FDF5322C28B355D8006CC337 /* Storage+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,6 +142,7 @@
 			children = (
 				FDF5320128AE44BA006CC337 /* GroceryViewModel.swift */,
 				FDF5320928AE4F55006CC337 /* IngredientViewModel.swift */,
+				FDF5322928B33989006CC337 /* StorageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -182,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				FDF531FB28AE412E006CC337 /* StorageView.swift */,
+				FDAA35F328B35768006FD911 /* StorageListView.swift */,
 			);
 			path = StorageView;
 			sourceTree = "<group>";
@@ -198,6 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				FDF5321E28B27C7E006CC337 /* SF-Compact.ttf */,
+				FDAA35F528B3600C006FD911 /* NewYork.ttf */,
+				FDAA35F628B3600C006FD911 /* NewYorkItalic.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -260,9 +278,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDAA35F828B3600C006FD911 /* NewYorkItalic.ttf in Resources */,
 				FDF5321628AF6411006CC337 /* ingredients.csv in Resources */,
 				FDF531E428AE3CBA006CC337 /* Preview Assets.xcassets in Resources */,
 				FDF531E128AE3CBA006CC337 /* Assets.xcassets in Resources */,
+				FDAA35F728B3600C006FD911 /* NewYork.ttf in Resources */,
 				FDF5321F28B27C7E006CC337 /* SF-Compact.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,7 +298,9 @@
 				FDF531FE28AE413E006CC337 /* HistoryView.swift in Sources */,
 				FDF531FC28AE412E006CC337 /* StorageView.swift in Sources */,
 				FDF5320C28AE4FA0006CC337 /* GroceryItem.swift in Sources */,
+				FDF5322A28B33989006CC337 /* StorageViewModel.swift in Sources */,
 				FDF5320228AE44BA006CC337 /* GroceryViewModel.swift in Sources */,
+				FDF5322D28B355D8006CC337 /* Storage+CoreDataClass.swift in Sources */,
 				FDF5321C28AFC8FD006CC337 /* ShoppingPlanV2.swift in Sources */,
 				FDF5321428AE8E16006CC337 /* Enums.swift in Sources */,
 				FDF5320028AE4147006CC337 /* GroceryView.swift in Sources */,
@@ -286,10 +308,12 @@
 				FDF5320828AE4991006CC337 /* GroceryShoppingPlan.swift in Sources */,
 				FDF531E628AE3CBA006CC337 /* Persistence.swift in Sources */,
 				FDF531F828AE40CD006CC337 /* TabbedView.swift in Sources */,
+				FDF5322E28B355D8006CC337 /* Storage+CoreDataProperties.swift in Sources */,
 				FDF531DF28AE3CB9006CC337 /* ContentView.swift in Sources */,
 				FDF5321828AF6FB8006CC337 /* RoundedCorner.swift in Sources */,
 				FDF5320E28AE509D006CC337 /* RoundedImage.swift in Sources */,
 				FDF5320428AE44E8006CC337 /* DataInitialization.swift in Sources */,
+				FDAA35F428B35768006FD911 /* StorageListView.swift in Sources */,
 				FDF5322628B28A6D006CC337 /* IngredientList.swift in Sources */,
 				FDF5320A28AE4F55006CC337 /* IngredientViewModel.swift in Sources */,
 				FDF531E928AE3CBA006CC337 /* CeMeal.xcdatamodeld in Sources */,

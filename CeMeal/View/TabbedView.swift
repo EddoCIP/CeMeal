@@ -12,6 +12,15 @@ struct TabbedView: View {
     
     @State private var selection: Int = 0
     
+    init() {
+        let tabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.shadowColor = .gray
+        tabBarAppearance.selectionIndicatorTintColor = UIColor(Color.darkGreen)
+        tabBarAppearance.backgroundColor = .white
+        UITabBar.appearance().standardAppearance = tabBarAppearance
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+    }
+    
     var body: some View {
         TabView(selection: $selection) {
             StorageView()
@@ -27,19 +36,8 @@ struct TabbedView: View {
                     Text("List")
                 }
                 .tag(1)
-//            HistoryView()
-//                .tabItem {
-//                    Image(systemName: "signpost.left")
-//                    Text("History")
-//                }
-//                .tag(2)
-//            ShoppingPlanV2()
-//                .tabItem {
-//                    Image(systemName: "signpost.left")
-//                    Text("Shopping Plan V2")
-//                }
-//                .tag(3)
         }
+        .tint(Color.darkerGreen)
         .onAppear {
             if ingredients.isEmpty {
                 loadIngredientFromCSV()

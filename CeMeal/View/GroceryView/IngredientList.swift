@@ -15,7 +15,7 @@ struct IngredientList: View {
     @State var searchKeyword : String = ""
     
     @Binding var selectedIngredients : [Ingredient]
-    @Binding var ingredientList: [Ingredient]
+    var ingredientList: [Ingredient] = []
     @Binding var categoryName: String
     
     let columns = [
@@ -86,6 +86,6 @@ struct IngredientList: View {
 struct IngredientList_Previews: PreviewProvider {
     static var previews: some View {
         let ingredient = Ingredient(context: PersistenceController.preview.container.viewContext)
-        IngredientList(selectedIngredients: .constant([]), ingredientList: .constant([ingredient]), categoryName: .constant("Apa hayoo"))
+        IngredientList(selectedIngredients: .constant([]), ingredientList: [ingredient], categoryName: .constant("Apa hayoo"))
     }
 }

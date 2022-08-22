@@ -27,8 +27,8 @@ struct ShoppingPlanV2: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
-                Text("LIST INGREDIENTS")
-                    .compactFont(size: 20)
+                Text("Ingredients")
+                    .newYorkFont(size: 20)
                     .fontWeight(.semibold)
                     .foregroundColor(Color.semiDarkGray.opacity(0.5))
                 LazyVGrid(columns: columns, spacing: 20) {
@@ -49,7 +49,7 @@ struct ShoppingPlanV2: View {
         }
         .padding(.horizontal)
         .sheet(isPresented: $isSheetActive) {
-            IngredientList(selectedIngredients: $selectedIngredients, ingredientList: $groupItem, categoryName: $groupCategory)
+            IngredientList(selectedIngredients: $selectedIngredients, ingredientList: $groupItem.wrappedValue, categoryName: $groupCategory)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

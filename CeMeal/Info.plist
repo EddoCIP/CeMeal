@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>SF-Compact.ttf</string>
+		<string>NewYork.ttf</string>
 	</array>
 </dict>
 </plist>

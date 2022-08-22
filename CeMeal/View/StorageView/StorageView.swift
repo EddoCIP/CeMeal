@@ -8,8 +8,79 @@
 import SwiftUI
 
 struct StorageView: View {
+    @ObservedObject var storageVM : StorageViewModel = .init()
+    
+    @State private var isShowSheet: Bool = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ZStack {
+                Color.darkerGreen.ignoresSafeArea()
+                VStack {
+                    HStack{
+                        Spacer()
+                    }
+                    .frame(height: UINavigationBar.appearance().bounds.height)
+                    HStack {
+                        Text("Storage")
+                            .font(.system(size: 34, weight: .light, design: .rounded))
+                            .foregroundColor(Color.lighterOrange)
+                        Spacer()
+                        Button {
+                            isShowSheet.toggle()
+                        } label: {
+                            Text("view all ingredients")
+                                .font(.custom("SF Pro Display", size: 13))
+                                .padding(10)
+                                .foregroundColor(Color.darkGreen)
+                                .background(Color.white)
+                                .clipShape(
+                                    RoundedCorner(radius: 14.5, corners: [.topLeft, .topRight]))
+                        }
+                        .offset(y: 27)
+                    }
+                    Divider()
+                        .background(Color.white)
+                        .shadow(radius: 10)
+                    HStack {
+                        Spacer()
+                        Text("\(storageVM.mustThrowIngredient.count) item(s)")
+                            .foregroundColor(Color.lightGreen)
+                            .font(.caption)
+                            .fontWeight(.bold)
+                    }
+                    
+                    if storageVM.mustThrowIngredient.isEmpty {
+                        VStack(spacing: 15) {
+                            Spacer()
+                            Image("vegetables")
+                                .resizable()
+                                .frame(width: 127, height: 127)
+                                .foregroundColor(Color.lightOrange)
+                            Text("your ingredients are safe!")
+                                .foregroundColor(Color.lightOrange)
+                                .font(.callout)
+                                .bold()
+                            Spacer()
+                        }
+                    } else {
+                        Text("Please pay special attention to these items")
+                            .newYorkFont(size: 16)
+                            .foregroundColor(Color.white.opacity(0.71))
+                        List {
+                            ForEach(storageVM.mustThrowIngredient) { item in
+                                //                            GroceryItem(grocery: item)
+                            }
+                        }.listStyle(.plain)
+                    }
+                }
+                .navigationBarTitleDisplayMode(.inline)
+                .padding(.horizontal)
+                .sheet(isPresented: $isShowSheet) {
+                    StorageListView()
+                }
+            }
+        }
     }
 }
 

@@ -24,7 +24,7 @@ struct GroceryView: View {
                 .frame(height: UINavigationBar.appearance().bounds.height)
                 HStack {
                     Text("Grocery List")
-                        .font(.system(size: 34, weight: .bold, design: .rounded))
+                        .font(.system(size: 34, weight: .light, design: .rounded))
                         .foregroundColor(Color.darkGreen)
                     Spacer()
                     Image(systemName: "plus.square")

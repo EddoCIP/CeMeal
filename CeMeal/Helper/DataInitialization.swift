@@ -32,6 +32,8 @@ func loadIngredientFromCSV() {
             ingredient.name = csvColumns[1]
             ingredient.category = csvColumns[0]
             ingredient.imageUrl = csvColumns[5]
+            ingredient.goodAge = Int16(csvColumns[3]) ?? 0
+            ingredient.carefulAge = Int16(csvColumns[4]) ?? 0
         }
     }
     

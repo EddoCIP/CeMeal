@@ -14,18 +14,20 @@ struct IngredientPlanItem: View {
     
     var body: some View {
         VStack {
-            Text("\(ingredient.name ?? "Unknown")")
+            Text("\(ingredient.name ?? "Unknown")\n")
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
                 .foregroundColor(Color.darkGreen)
                 .font(.system(size: 15, weight: .semibold, design: .default))
             Spacer()
+            let _ = print(ingredient.imageUrl ?? "")
             AsyncImage(url: URL(string: ingredient.imageUrl ?? "")) { phase in
                 if let image = phase.image {
                     image.resizable()
                 } else if phase.error != nil {
                     Color.white
                 } else {
+                    let _ = print("asyncImage")
                     ProgressView()
                 }
             }

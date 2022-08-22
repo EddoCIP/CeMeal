@@ -13,7 +13,9 @@
         <relationship name="groceryToIngredient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="ingredientToGrocery" inverseEntity="Ingredient"/>
     </entity>
     <entity name="Ingredient" representedClassName="Ingredient" syncable="YES" codeGenerationType="class">
+        <attribute name="carefulAge" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="goodAge" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="imageUrl" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -22,7 +24,7 @@
         <relationship name="ingredientToStorage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Storage" inverseName="storedIngredient" inverseEntity="Storage"/>
         <relationship name="ingredientToTrash" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TrashedIngredient" inverseName="trashToIngredient" inverseEntity="TrashedIngredient"/>
     </entity>
-    <entity name="Storage" representedClassName="Storage" syncable="YES" codeGenerationType="class">
+    <entity name="Storage" representedClassName="Storage" syncable="YES">
         <attribute name="expireDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -36,7 +38,7 @@
         <relationship name="trashToIngredient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="ingredientToTrash" inverseEntity="Ingredient"/>
     </entity>
     <elements>
-        <element name="Ingredient" positionX="-54" positionY="-9" width="128" height="149"/>
+        <element name="Ingredient" positionX="-54" positionY="-9" width="128" height="179"/>
         <element name="Grocery" positionX="-36" positionY="36" width="128" height="89"/>
         <element name="TrashedIngredient" positionX="-18" positionY="81" width="128" height="89"/>
         <element name="Storage" positionX="0" positionY="99" width="128" height="104"/>
