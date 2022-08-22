@@ -10,27 +10,27 @@ import SwiftUI
 struct StepperGrocery: View {
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [.gray],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            Color.lightGray
             .ignoresSafeArea()
             
             HStack {
+                Spacer()
                 Image(systemName: "minus.circle.fill")
-                    .foregroundColor(.mint)
-                    .font(.system(size: 30, weight: .heavy))
-                
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                    .foregroundColor(Color.lightGreen)
+//                    .font(.system(size: 20, weight: .bold, design: .rounded))
                 Divider()
-                
                 Image(systemName: "plus.circle.fill")
-                    .foregroundColor(.mint)
-                    .font(.system(size: 30, weight: .heavy))
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                    .foregroundColor(Color.lightGreen)
+//                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                Spacer()
             }
         }
-        .frame(width: 100, height: 50)
-        .cornerRadius(90)
+        .frame(width: 69, height: 34)
+        .cornerRadius(17)
     }
 }
 

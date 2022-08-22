@@ -15,6 +15,7 @@ struct GroceryView: View {
     
     @State var isNavActive: Bool = false
     @State var isSettingActive: Bool = false
+    @State var doneGroceries: [Grocery] = []
     
     init() {
         UITableView.appearance().separatorColor = .clear
@@ -73,7 +74,7 @@ struct GroceryView: View {
                 } else {
                     List {
                         ForEach(groceries) { item in
-                            GroceryItem(grocery: item)
+                            GroceryItem(grocery: item, doneGroceries: $doneGroceries, isSettingActive: $isSettingActive)
                                 .clipShape(RoundedCorner(radius: 20, corners: [.bottomLeft, .topLeft]))
                                 .frame(height: 60)
                                 .swipeActions {
@@ -82,16 +83,20 @@ struct GroceryView: View {
                                     }, label: {
                                         Image(systemName: "trash")
                                     })
+                                    .tint(Color.red)
                                 }
                                 .shadow(radius: 5)
                             HStack {
-                                Spacer(minLength: 1)
+                                Spacer()
                             }
-                            .frame(height: 10)
+                            .frame(height: 5)
+                            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                         }
+                        .listRowBackground(Color.lightGray)
                         .padding(.trailing, -20)
                     }
-                    .listStyle(.plain)
+                    .background(Color.lightGray)
+                    .listStyle(GroupedListStyle())
                 }
             }
             .background {
