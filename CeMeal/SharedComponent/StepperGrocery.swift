@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct StepperGrocery: View {
+    var onDecrease: () -> Void
+    var onIncrease: () -> Void
+    
     var body: some View {
         ZStack {
             Color.lightGray
-            .ignoresSafeArea()
+                .ignoresSafeArea()
             
             HStack {
                 Spacer()
@@ -19,13 +22,17 @@ struct StepperGrocery: View {
                     .resizable()
                     .frame(width: 25, height: 25)
                     .foregroundColor(Color.lightGreen)
-//                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .onTapGesture {
+                        onDecrease()
+                    }
                 Divider()
                 Image(systemName: "plus.circle.fill")
                     .resizable()
                     .frame(width: 25, height: 25)
                     .foregroundColor(Color.lightGreen)
-//                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .onTapGesture {
+                        onIncrease()
+                    }
                 Spacer()
             }
         }
@@ -36,6 +43,11 @@ struct StepperGrocery: View {
 
 struct StepperGrocery_Previews: PreviewProvider {
     static var previews: some View {
-        StepperGrocery()
+        StepperGrocery {
+            
+        } onIncrease: {
+            
+        }
+        
     }
 }

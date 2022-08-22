@@ -45,7 +45,7 @@ struct GroceryView: View {
                 Divider()
                     .shadow(radius: 10)
                 HStack {
-                    Text("3 items")
+                    Text("\(groceries.count) items")
                         .foregroundColor(Color.darkerGreen)
                     Spacer()
                     Button {
@@ -72,31 +72,45 @@ struct GroceryView: View {
                         Spacer()
                     }
                 } else {
-                    List {
-                        ForEach(groceries) { item in
-                            GroceryItem(grocery: item, doneGroceries: $doneGroceries, isSettingActive: $isSettingActive)
-                                .clipShape(RoundedCorner(radius: 20, corners: [.bottomLeft, .topLeft]))
-                                .frame(height: 60)
-                                .swipeActions {
-                                    Button(role: .destructive, action: {
-                                        
-                                    }, label: {
-                                        Image(systemName: "trash")
-                                    })
-                                    .tint(Color.red)
+                    VStack {
+                        List {
+                            ForEach(groceries) { item in
+                                GroceryItem(grocery: item, doneGroceries: $doneGroceries, isSettingActive: $isSettingActive)
+                                    .clipShape(RoundedCorner(radius: 17, corners: [.bottomLeft, .topLeft]))
+                                    .frame(height: 60)
+                                    .swipeActions {
+                                        Button(role: .destructive, action: {
+                                            
+                                        }, label: {
+                                            Image(systemName: "trash")
+                                        })
+                                        .tint(Color.red)
+                                    }
+                                    .shadow(radius: 5)
+                                HStack {
+                                    Spacer()
                                 }
-                                .shadow(radius: 5)
-                            HStack {
-                                Spacer()
+                                .frame(height: 5)
+                                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                             }
-                            .frame(height: 5)
-                            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                            .listRowBackground(Color.lightGray)
+                            .padding(.trailing, -20)
                         }
-                        .listRowBackground(Color.lightGray)
-                        .padding(.trailing, -20)
+                        .listStyle(GroupedListStyle())
+                        Button {
+                            groceryVM.saveGroceriesToStorage(groceries: doneGroceries)
+                        } label: {
+                            Text("Add to storage")
+                                .frame(width: 209, height: 46)
+                        }
+                        .padding()
+                        .buttonStyle(.borderedProminent)
+                        .if(!isSettingActive) { button in
+                            button.hidden()
+                        }
+
                     }
                     .background(Color.lightGray)
-                    .listStyle(GroupedListStyle())
                 }
             }
             .background {

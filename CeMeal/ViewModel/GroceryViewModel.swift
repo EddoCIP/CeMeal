@@ -28,6 +28,23 @@ class GroceryViewModel: ObservableObject {
         }
     }
     
+    func saveGroceriesToStorage(groceries: [Grocery]) {
+        let moc = PersistenceController.shared.container.viewContext
+        
+        for item in groceries {
+            let storage = Storage(context: moc)
+            
+            storage.id = UUID()
+            storage.quantity = item.quantity
+            storage.storedDate = Date()
+            storage.storedIngredient = item.groceryToIngredient
+            
+            moc.delete(item)
+        }
+        
+        save()
+    }
+    
     func saveIngredientsToGrocery(ingredients: [Ingredient]) {
         for item in ingredients {
             let grocery = Grocery(context: PersistenceController.shared.container.viewContext)
@@ -48,5 +65,17 @@ class GroceryViewModel: ObservableObject {
         catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func increaseQuantity(grocery: Grocery) {
+        grocery.quantity += 1
+        
+        save()
+    }
+    
+    func decreaseQuantity(grocery: Grocery) {
+        grocery.quantity -= 1
+        
+        save()
     }
 }

@@ -13,6 +13,7 @@ class StorageViewModel: ObservableObject {
     
     init() {
         loadStorage()
+//        print(storageList)
     }
     
     func loadStorage() {

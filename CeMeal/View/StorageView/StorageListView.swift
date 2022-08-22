@@ -9,12 +9,16 @@ import SwiftUI
 
 struct StorageListView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var storegeVM: StorageViewModel = .init()
+    @ObservedObject var storageVM: StorageViewModel = .init()
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack(alignment: .leading) {
+            List {
+                Section {
+                    ForEach(storageVM.mustThrowIngredient) { item in
+                        Text("\(item.storedIngredient?.name ?? "Unknown")")
+                    }
+                } header: {
                     HStack {
                         Image(systemName: "exclamationmark.circle.fill")
                         Text("Throw away now!")
@@ -23,11 +27,14 @@ struct StorageListView: View {
                         Spacer()
                     }
                     .foregroundColor(Color.darkRed)
-                    List {
-                        ForEach(storegeVM.mustThrowIngredient) { item in
-                            EmptyView()
-                        }
+                }
+                .headerProminence(.increased)
+                
+                Section {
+                    ForEach(storageVM.safeToConsumeIngredient) { item in
+                        Text("\(item.storedIngredient?.name ?? "Unknown")")
                     }
+                } header: {
                     HStack {
                         Image(systemName: "fork.knife.circle.fill")
                         Text("Consume immeadiately!")
@@ -35,11 +42,38 @@ struct StorageListView: View {
                             .fontWeight(.medium)
                         Spacer()
                     }
-                    List {
-                        ForEach(storegeVM.safeToConsumeIngredient) { item in
-                            EmptyView()
-                        }
+                }
+                .headerProminence(.increased)
+                
+                Section {
+                    ForEach(storageVM.freshIngredient) { item in
+                        IngredientlistCell(storage: item)
+                            .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
+                            .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                                Button {
+                                    
+                                } label: {
+                                    VStack {
+                                        Image(systemName: "fork.knife")
+                                        Text("Consumed")
+                                    }
+                                }
+                                .tint(Color.green)
+
+                                Button(role: .destructive, action: {
+                                    
+                                }, label: {
+                                    VStack {
+                                        Image(systemName: "trash")
+                                        Text("Trashed")
+                                    }
+                                })
+                                .tint(Color.red)
+                            }
+                            .padding(.vertical)
+                            .shadow(color: .black, radius: 4, x: -2, y: 1)
                     }
+                } header: {
                     HStack {
                         Image(systemName: "leaf.circle.fill")
                         Text("Still fresh!")
@@ -48,7 +82,9 @@ struct StorageListView: View {
                         Spacer()
                     }
                 }
-                .padding()
+                .headerProminence(.increased)
+                .listRowBackground(Color.white)
+                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             }
             .background(Color.lightGray)
             .navigationTitle("All ingredients list")

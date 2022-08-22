@@ -13,6 +13,8 @@ struct GroceryItem: View {
     @Binding var isSettingActive: Bool
     @State var showStepper: Bool = false
     
+    @ObservedObject var groceryVM : GroceryViewModel = .init()
+    
     var body: some View {
         ZStack {
             let isDone = self.doneGroceries.contains(grocery)
@@ -48,7 +50,7 @@ struct GroceryItem: View {
                         }
                     Spacer()
                     VStack {
-                        RoundedCorner(radius: 17, corners: .allCorners)
+                        RoundedCorner(radius: 18, corners: .allCorners)
                             .foregroundColor(Color.lightGray)
                             .frame(width: 69, height: 34)
                             .overlay(Text("\(grocery.quantity)")
@@ -58,7 +60,11 @@ struct GroceryItem: View {
                                 showStepper.toggle()
                             }
                         if showStepper {
-                            StepperGrocery()
+                            StepperGrocery {
+                                groceryVM.decreaseQuantity(grocery: grocery)
+                            } onIncrease: {
+                                groceryVM.increaseQuantity(grocery: grocery)
+                            }
                         }
                     }
 //                    Spacer()
