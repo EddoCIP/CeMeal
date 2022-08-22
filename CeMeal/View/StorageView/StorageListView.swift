@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StorageListView: View {
+    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var storegeVM: StorageViewModel = .init()
     
     var body: some View {
@@ -53,9 +54,13 @@ struct StorageListView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    HStack {
-                        Image(systemName: "chevron.left")
-                        Text("Storage")
+                    Button {
+                        self.presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        HStack {
+                            Image(systemName: "chevron.left")
+                            Text("Storage")
+                        }
                     }
                 }
             }
