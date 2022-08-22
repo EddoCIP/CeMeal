@@ -62,11 +62,13 @@ struct GroceryView: View {
                     Text("")
                 }
             }
+            
             .navigationBarTitleDisplayMode(.inline)
             .padding(.horizontal)
             .sheet(isPresented: $isShowSheet) {
                 GroceryShoppingPlan()
             }
+            .background(Color.lightGray)
         }
     }
 }

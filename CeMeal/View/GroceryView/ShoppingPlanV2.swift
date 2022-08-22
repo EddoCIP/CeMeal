@@ -64,6 +64,7 @@ struct ShoppingPlanV2: View {
                 }
             }
         }
+        .background(Color.lightGray)
         .navigationTitle("Your shopping plan")
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
