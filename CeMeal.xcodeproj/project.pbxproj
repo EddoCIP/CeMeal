@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E5E643628B38E10003759EC /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643528B38E10003759EC /* GroceryList.swift */; };
+		2E5E643828B38F23003759EC /* IngredientlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643728B38F23003759EC /* IngredientlistCell.swift */; };
 		FDAA35F428B35768006FD911 /* StorageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA35F328B35768006FD911 /* StorageListView.swift */; };
 		FDAA35F728B3600C006FD911 /* NewYork.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDAA35F528B3600C006FD911 /* NewYork.ttf */; };
 		FDAA35F828B3600C006FD911 /* NewYorkItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDAA35F628B3600C006FD911 /* NewYorkItalic.ttf */; };
@@ -41,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E5E643528B38E10003759EC /* GroceryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
+		2E5E643728B38F23003759EC /* IngredientlistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientlistCell.swift; sourceTree = "<group>"; };
 		FDAA35F328B35768006FD911 /* StorageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageListView.swift; sourceTree = "<group>"; };
 		FDAA35F528B3600C006FD911 /* NewYork.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYork.ttf; sourceTree = "<group>"; };
 		FDAA35F628B3600C006FD911 /* NewYorkItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYorkItalic.ttf; sourceTree = "<group>"; };
@@ -164,6 +168,8 @@
 			children = (
 				FDF5320D28AE509D006CC337 /* RoundedImage.swift */,
 				FDF5321728AF6FB8006CC337 /* RoundedCorner.swift */,
+				2E5E643528B38E10003759EC /* GroceryList.swift */,
+				2E5E643728B38F23003759EC /* IngredientlistCell.swift */,
 			);
 			path = SharedComponent;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 				FDF531FC28AE412E006CC337 /* StorageView.swift in Sources */,
 				FDF5320C28AE4FA0006CC337 /* GroceryItem.swift in Sources */,
 				FDF5322A28B33989006CC337 /* StorageViewModel.swift in Sources */,
+				2E5E643628B38E10003759EC /* GroceryList.swift in Sources */,
 				FDF5320228AE44BA006CC337 /* GroceryViewModel.swift in Sources */,
 				FDF5322D28B355D8006CC337 /* Storage+CoreDataClass.swift in Sources */,
 				FDF5321C28AFC8FD006CC337 /* ShoppingPlanV2.swift in Sources */,
@@ -316,6 +323,7 @@
 				FDAA35F428B35768006FD911 /* StorageListView.swift in Sources */,
 				FDF5322628B28A6D006CC337 /* IngredientList.swift in Sources */,
 				FDF5320A28AE4F55006CC337 /* IngredientViewModel.swift in Sources */,
+				2E5E643828B38F23003759EC /* IngredientlistCell.swift in Sources */,
 				FDF531E928AE3CBA006CC337 /* CeMeal.xcdatamodeld in Sources */,
 				FDF531DD28AE3CB9006CC337 /* CeMealApp.swift in Sources */,
 				FDF5322828B28B3C006CC337 /* IngredientCategoryView.swift in Sources */,
