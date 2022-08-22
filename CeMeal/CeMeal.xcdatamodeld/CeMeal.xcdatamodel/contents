@@ -38,10 +38,10 @@
         <relationship name="trashToIngredient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="ingredientToTrash" inverseEntity="Ingredient"/>
     </entity>
     <elements>
-        <element name="Ingredient" positionX="-54" positionY="-9" width="128" height="179"/>
-        <element name="Grocery" positionX="-36" positionY="36" width="128" height="89"/>
-        <element name="TrashedIngredient" positionX="-18" positionY="81" width="128" height="89"/>
-        <element name="Storage" positionX="0" positionY="99" width="128" height="104"/>
         <element name="ConsumedIngredient" positionX="18" positionY="126" width="128" height="89"/>
+        <element name="Grocery" positionX="-36" positionY="36" width="128" height="89"/>
+        <element name="Ingredient" positionX="-54" positionY="-9" width="128" height="179"/>
+        <element name="Storage" positionX="0" positionY="99" width="128" height="104"/>
+        <element name="TrashedIngredient" positionX="-18" positionY="81" width="128" height="89"/>
     </elements>
 </model>

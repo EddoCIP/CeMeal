@@ -27,13 +27,18 @@ func loadIngredientFromCSV() {
     for row in rows {
         let csvColumns : [String] = row.components(separatedBy: ",")
         if csvColumns.count == columnCount {
+            
             let ingredient = Ingredient(context: context)
             ingredient.id = UUID()
             ingredient.name = csvColumns[1]
             ingredient.category = csvColumns[0]
-            ingredient.imageUrl = csvColumns[5]
             ingredient.goodAge = Int16(csvColumns[3]) ?? 0
             ingredient.carefulAge = Int16(csvColumns[4]) ?? 0
+            if !csvColumns[5].isEmpty {
+                let separated = csvColumns[5].components(separatedBy: "\r")
+                
+                ingredient.imageUrl = separated[0]
+            }
         }
     }
     

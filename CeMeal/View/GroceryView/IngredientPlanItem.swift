@@ -20,14 +20,12 @@ struct IngredientPlanItem: View {
                 .foregroundColor(Color.darkGreen)
                 .font(.system(size: 15, weight: .semibold, design: .default))
             Spacer()
-            let _ = print(ingredient.imageUrl ?? "")
             AsyncImage(url: URL(string: ingredient.imageUrl ?? "")) { phase in
                 if let image = phase.image {
                     image.resizable()
                 } else if phase.error != nil {
                     Color.white
                 } else {
-                    let _ = print("asyncImage")
                     ProgressView()
                 }
             }
