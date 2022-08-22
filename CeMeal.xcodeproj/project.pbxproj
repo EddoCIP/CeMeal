@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E5E643628B38E10003759EC /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643528B38E10003759EC /* GroceryList.swift */; };
 		2E5E643828B38F23003759EC /* IngredientlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643728B38F23003759EC /* IngredientlistCell.swift */; };
+		2E5E643C28B3BDCF003759EC /* StepperGrocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */; };
 		FDAA35F428B35768006FD911 /* StorageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA35F328B35768006FD911 /* StorageListView.swift */; };
 		FDAA35F728B3600C006FD911 /* NewYork.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDAA35F528B3600C006FD911 /* NewYork.ttf */; };
 		FDAA35F828B3600C006FD911 /* NewYorkItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDAA35F628B3600C006FD911 /* NewYorkItalic.ttf */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		2E5E643528B38E10003759EC /* GroceryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
 		2E5E643728B38F23003759EC /* IngredientlistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientlistCell.swift; sourceTree = "<group>"; };
+		2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperGrocery.swift; sourceTree = "<group>"; };
 		FDAA35F328B35768006FD911 /* StorageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageListView.swift; sourceTree = "<group>"; };
 		FDAA35F528B3600C006FD911 /* NewYork.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYork.ttf; sourceTree = "<group>"; };
 		FDAA35F628B3600C006FD911 /* NewYorkItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYorkItalic.ttf; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				FDF5321728AF6FB8006CC337 /* RoundedCorner.swift */,
 				2E5E643528B38E10003759EC /* GroceryList.swift */,
 				2E5E643728B38F23003759EC /* IngredientlistCell.swift */,
+				2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */,
 			);
 			path = SharedComponent;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				FDF531FC28AE412E006CC337 /* StorageView.swift in Sources */,
 				FDF5320C28AE4FA0006CC337 /* GroceryItem.swift in Sources */,
 				FDF5322A28B33989006CC337 /* StorageViewModel.swift in Sources */,
+				2E5E643C28B3BDCF003759EC /* StepperGrocery.swift in Sources */,
 				2E5E643628B38E10003759EC /* GroceryList.swift in Sources */,
 				FDF5320228AE44BA006CC337 /* GroceryViewModel.swift in Sources */,
 				FDF5322D28B355D8006CC337 /* Storage+CoreDataClass.swift in Sources */,

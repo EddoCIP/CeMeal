@@ -50,6 +50,7 @@ struct StorageListView: View {
                 }
                 .padding()
             }
+            .background(Color.lightGray)
             .navigationTitle("All ingredients list")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

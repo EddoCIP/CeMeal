@@ -101,10 +101,12 @@ struct GroceryView: View {
                     Text("")
                 }
             }
+            
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $isShowSheet) {
                 GroceryShoppingPlan()
             }
+            .background(Color.lightGray)
         }
     }
 }
