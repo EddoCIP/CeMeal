@@ -42,29 +42,28 @@ struct IngredientList: View {
                         }
                     }
                 }
-//                Spacer()
-                    .searchable(text: $searchKeyword, placement: .navigationBarDrawer(displayMode: .always), prompt: "What ingredients do you need?")
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button {
-                                if !selectedIngredients.isEmpty {
-                                    groceryVM.saveIngredientsToGrocery(ingredients: selectedIngredients)
-                                    self.presentationMode.wrappedValue.dismiss()
-                                }
-                            } label: {
-                                Text("Add To List")
-                                    .disabled(selectedIngredients.isEmpty)
-                            }
-                        }
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button {
+                .searchable(text: $searchKeyword, placement: .navigationBarDrawer(displayMode: .always), prompt: "What ingredients do you need?")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            if !selectedIngredients.isEmpty {
+                                groceryVM.saveIngredientsToGrocery(ingredients: selectedIngredients)
                                 self.presentationMode.wrappedValue.dismiss()
-                            } label: {
-                                Text("Close")
-                                    .foregroundColor(Color.red)
                             }
+                        } label: {
+                            Text("Add To List")
+                                .disabled(selectedIngredients.isEmpty)
                         }
                     }
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            self.presentationMode.wrappedValue.dismiss()
+                        } label: {
+                            Text("Close")
+                                .foregroundColor(Color.red)
+                        }
+                    }
+                }
             }
             .padding(.horizontal)
             .background(Color.lightGray)
