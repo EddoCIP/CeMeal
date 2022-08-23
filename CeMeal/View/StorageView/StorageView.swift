@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct StorageView: View {
-    @ObservedObject var storageVM : StorageViewModel = .init()
+    @StateObject var storageVM : StorageViewModel = .init()
     
     @State private var isShowSheet: Bool = false
     
     let rows = [
-        GridItem(.flexible())
+        GridItem(.flexible(minimum: 230, maximum: 300))
     ]
     
     var body: some View {
@@ -68,16 +68,7 @@ struct StorageView: View {
                             Spacer()
                         }
                     } else {
-                        Text("Please pay special attention to these items")
-                            .newYorkFont(size: 16)
-                            .foregroundColor(Color.white.opacity(0.71))
-                        ScrollView(.horizontal) {
-                            LazyHGrid(rows: rows) {
-                                ForEach(storageVM.mustThrowIngredient) { item in
-                                    // MARK: TODO implement custom view
-                                }
-                            }
-                        }
+                        dashboardWithIngredients()
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
@@ -86,6 +77,53 @@ struct StorageView: View {
                     StorageListView()
                 }
             }
+        }
+        .onAppear {
+            storageVM.loadStorage()
+        }
+    }
+    
+    func subTitleDashboard(subtitle: String) -> some View {
+        VStack {
+            Divider()
+                .background(Color.white)
+                .shadow(radius: 10)
+            HStack {
+                Text(subtitle)
+                    .newYorkFont(size: 16)
+                    .foregroundColor(Color.white.opacity(0.71))
+                Spacer()
+            }
+            Divider()
+                .background(Color.white)
+                .shadow(radius: 10)
+        }
+    }
+    
+    func dashboardWithIngredients() -> some View {
+        VStack {
+            subTitleDashboard(subtitle: "Items that need special attention")
+            ScrollView(.horizontal, showsIndicators: true) {
+                LazyHGrid(rows: rows) {
+                    ForEach(storageVM.dashboardStorage) { item in
+                        MainMenuCard(storage: item)
+                    }
+                }
+            }
+            Spacer()
+            subTitleDashboard(subtitle: "Your Food History")
+            Spacer()
+            ConsumedIngredientSummary()
+            .padding()
+            .frame(width: 340, height: 90)
+            .background(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            TrashedIngredientSummary()
+            .padding()
+            .frame(width: 340, height: 90)
+            .background(Color.white)
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            Spacer()
         }
     }
 }

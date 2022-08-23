@@ -40,7 +40,7 @@ class StorageViewModel: ObservableObject {
         consumedIngredient.consumeToIngredient = storage.storedIngredient
         
         moc.delete(storage)
-        try? moc.save()
+        save()
     }
     
     func moveToThrashed(storage: Storage) {
@@ -54,24 +54,41 @@ class StorageViewModel: ObservableObject {
         trashedIngredient.trashToIngredient = storage.storedIngredient
         
         moc.delete(storage)
-        try? moc.save()
+        save()
     }
     
     var mustThrowIngredient : [Storage] {
         return storageList.filter { storedItem in
             return storedItem.isDanger
         }
+        .sorted { $0.age > $1.age }
     }
     
     var safeToConsumeIngredient: [Storage] {
         return storageList.filter { storedItem in
             return storedItem.isSafe
         }
+        .sorted { $0.age > $1.age }
     }
     
     var freshIngredient: [Storage] {
         return storageList.filter { storedItem in
             return storedItem.isGood
+        }
+        .sorted { $0.age > $1.age }
+    }
+    
+    var dashboardStorage: [Storage] {
+        return mustThrowIngredient + safeToConsumeIngredient
+    }
+    
+    func save() {
+        do {
+            try PersistenceController.shared.container.viewContext.save()
+            loadStorage()
+        }
+        catch {
+            print(error.localizedDescription)
         }
     }
 }

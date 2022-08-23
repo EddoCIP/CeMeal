@@ -29,6 +29,7 @@ struct StorageListView: View {
                     }
                     .headerProminence(.increased)
                     .listRowBackground(Color.clear)
+                    .listRowInsets(.init(top: 5, leading: 2, bottom: 2, trailing: 2))
                 }
                 
                 if !storageVM.safeToConsumeIngredient.isEmpty {
@@ -45,6 +46,7 @@ struct StorageListView: View {
                     }
                     .headerProminence(.increased)
                     .listRowBackground(Color.clear)
+                    .listRowInsets(.init(top: 5, leading: 2, bottom: 2, trailing: 2))
                 }
                 
                 if !storageVM.freshIngredient.isEmpty {
@@ -88,7 +90,7 @@ struct StorageListView: View {
                 .clipShape(RoundedCorner(radius: 7, corners: .allCorners))
                 .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                     Button {
-                        
+                        storageVM.moveToConsumed(storage: item)
                     } label: {
                         VStack {
                             Image(systemName: "fork.knife")
@@ -98,7 +100,7 @@ struct StorageListView: View {
                     .tint(Color.green)
                     
                     Button(role: .destructive, action: {
-                        
+                        storageVM.moveToThrashed(storage: item)
                     }, label: {
                         VStack {
                             Image(systemName: "trash")

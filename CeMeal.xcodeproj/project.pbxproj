@@ -11,6 +11,8 @@
 		2E5E643628B38E10003759EC /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643528B38E10003759EC /* GroceryList.swift */; };
 		2E5E643828B38F23003759EC /* IngredientlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643728B38F23003759EC /* IngredientlistCell.swift */; };
 		2E5E643C28B3BDCF003759EC /* StepperGrocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */; };
+		FD64181028B5383E003972F7 /* ConsumedIngredientSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD64180F28B5383D003972F7 /* ConsumedIngredientSummary.swift */; };
+		FD64181228B53867003972F7 /* TrashedIngredientSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD64181128B53867003972F7 /* TrashedIngredientSummary.swift */; };
 		FDAA35F428B35768006FD911 /* StorageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA35F328B35768006FD911 /* StorageListView.swift */; };
 		FDAA35F728B3600C006FD911 /* NewYork.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDAA35F528B3600C006FD911 /* NewYork.ttf */; };
 		FDAA35F828B3600C006FD911 /* NewYorkItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDAA35F628B3600C006FD911 /* NewYorkItalic.ttf */; };
@@ -51,6 +53,8 @@
 		2E5E643528B38E10003759EC /* GroceryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
 		2E5E643728B38F23003759EC /* IngredientlistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientlistCell.swift; sourceTree = "<group>"; };
 		2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperGrocery.swift; sourceTree = "<group>"; };
+		FD64180F28B5383D003972F7 /* ConsumedIngredientSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumedIngredientSummary.swift; sourceTree = "<group>"; };
+		FD64181128B53867003972F7 /* TrashedIngredientSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashedIngredientSummary.swift; sourceTree = "<group>"; };
 		FDAA35F328B35768006FD911 /* StorageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageListView.swift; sourceTree = "<group>"; };
 		FDAA35F528B3600C006FD911 /* NewYork.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYork.ttf; sourceTree = "<group>"; };
 		FDAA35F628B3600C006FD911 /* NewYorkItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYorkItalic.ttf; sourceTree = "<group>"; };
@@ -216,6 +220,8 @@
 				FDF531FB28AE412E006CC337 /* StorageView.swift */,
 				FDAA35F328B35768006FD911 /* StorageListView.swift */,
 				FDAA35FE28B4CFC6006FD911 /* StorageIngredientItem.swift */,
+				FD64180F28B5383D003972F7 /* ConsumedIngredientSummary.swift */,
+				FD64181128B53867003972F7 /* TrashedIngredientSummary.swift */,
 			);
 			path = StorageView;
 			sourceTree = "<group>";
@@ -327,12 +333,14 @@
 				2E30BB4728B5266A00ADF735 /* MainMenuCard.swift in Sources */,
 				FDF5321228AE5566006CC337 /* IngredientPlanItem.swift in Sources */,
 				FDF5320828AE4991006CC337 /* GroceryShoppingPlan.swift in Sources */,
+				FD64181028B5383E003972F7 /* ConsumedIngredientSummary.swift in Sources */,
 				FDAA35FF28B4CFC6006FD911 /* StorageIngredientItem.swift in Sources */,
 				FDF531E628AE3CBA006CC337 /* Persistence.swift in Sources */,
 				FDF531F828AE40CD006CC337 /* TabbedView.swift in Sources */,
 				FDF5322E28B355D8006CC337 /* Storage+CoreDataProperties.swift in Sources */,
 				FDF531DF28AE3CB9006CC337 /* ContentView.swift in Sources */,
 				FDF5321828AF6FB8006CC337 /* RoundedCorner.swift in Sources */,
+				FD64181228B53867003972F7 /* TrashedIngredientSummary.swift in Sources */,
 				FDF5320E28AE509D006CC337 /* RoundedImage.swift in Sources */,
 				FDF5320428AE44E8006CC337 /* DataInitialization.swift in Sources */,
 				FDAA35F428B35768006FD911 /* StorageListView.swift in Sources */,

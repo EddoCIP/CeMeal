@@ -15,7 +15,6 @@ struct IngredientlistCell: View {
         
         HStack {
             HStack {
-                //                Spacer()
                 AsyncImage(url: URL(string: storage.storedIngredient?.imageUrl ?? "")) { phase in
                     if let image = phase.image {
                         image.resizable()

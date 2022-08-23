@@ -63,8 +63,14 @@ struct GroceryItem: View {
                             }
                         if showStepper {
                             StepperGrocery {
+                                let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                                    impactMed.impactOccurred()
+                                impactMed.impactOccurred()
                                 groceryVM.decreaseQuantity(grocery: grocery)
                             } onIncrease: {
+                                let impactMed = UIImpactFeedbackGenerator(style: .medium)
+                                    impactMed.impactOccurred()
+                                impactMed.impactOccurred()
                                 groceryVM.increaseQuantity(grocery: grocery)
                             }
                         }

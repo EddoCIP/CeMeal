@@ -45,3 +45,51 @@ func loadIngredientFromCSV() {
     
     try? context.save()
 }
+
+func loadIngredientToStorage() {
+    let context = PersistenceController.shared.container.viewContext
+    
+    let request = NSFetchRequest<Ingredient>(entityName: "Ingredient")
+    request.sortDescriptors = []
+    var ingredientList: [Ingredient]
+    
+    do {
+        try ingredientList = context.fetch(request)
+        
+        for ingredient in ingredientList {
+            let storage = Storage(context: context)
+            storage.id = UUID()
+            storage.storedDate = Calendar.current.date(byAdding: .day, value: -Int.random(in: 1...90), to: Date())
+            storage.storedIngredient = ingredient
+            storage.quantity = Int16.random(in: 1...5)
+        }
+        
+        try context.save()
+    } catch {
+        print(error.localizedDescription)
+    }
+}
+
+func setTrashedIngredient() {
+    let context = PersistenceController.shared.container.viewContext
+    
+    let request = NSFetchRequest<Ingredient>(entityName: "Ingredient")
+    request.sortDescriptors = []
+    var ingredientList: [Ingredient]
+    
+    do {
+        try ingredientList = context.fetch(request)
+        
+        for ingredient in ingredientList {
+            let trashed = TrashedIngredient(context: context)
+            trashed.id = UUID()
+            trashed.quantity = 2
+            trashed.trashToIngredient = ingredient
+            trashed.trashedDate = Date()
+        }
+        
+        try context.save()
+    } catch {
+        print(error.localizedDescription)
+    }
+}
