@@ -17,6 +17,7 @@ struct ShoppingPlanV2: View {
     @State var groupItem : [Ingredient] = []
     @State var isSheetActive : Bool = false
     @State var groupCategory: String = ""
+    @State var searchKeyword: String = ""
     
     let columns = [
         GridItem(.flexible()),
@@ -47,6 +48,7 @@ struct ShoppingPlanV2: View {
         .onAppear {
             ingredientVM.loadIngredient()
         }
+        .searchable(text: $ingredientVM.searchQuery, placement: .navigationBarDrawer(displayMode: .always), prompt: "What ingredients do you need?")
         .padding(.horizontal)
         .sheet(isPresented: $isSheetActive) {
             IngredientList(selectedIngredients: $selectedIngredients, ingredientList: $groupItem.wrappedValue, categoryName: $groupCategory)

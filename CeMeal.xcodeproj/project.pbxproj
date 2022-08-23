@@ -13,6 +13,8 @@
 		FDAA35F428B35768006FD911 /* StorageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA35F328B35768006FD911 /* StorageListView.swift */; };
 		FDAA35F728B3600C006FD911 /* NewYork.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDAA35F528B3600C006FD911 /* NewYork.ttf */; };
 		FDAA35F828B3600C006FD911 /* NewYorkItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDAA35F628B3600C006FD911 /* NewYorkItalic.ttf */; };
+		FDAA35FA28B4B710006FD911 /* SwipeContainerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA35F928B4B70F006FD911 /* SwipeContainerCell.swift */; };
+		FDAA35FF28B4CFC6006FD911 /* StorageIngredientItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA35FE28B4CFC6006FD911 /* StorageIngredientItem.swift */; };
 		FDF531DD28AE3CB9006CC337 /* CeMealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF531DC28AE3CB9006CC337 /* CeMealApp.swift */; };
 		FDF531DF28AE3CB9006CC337 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF531DE28AE3CB9006CC337 /* ContentView.swift */; };
 		FDF531E128AE3CBA006CC337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDF531E028AE3CBA006CC337 /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		FDAA35F328B35768006FD911 /* StorageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageListView.swift; sourceTree = "<group>"; };
 		FDAA35F528B3600C006FD911 /* NewYork.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYork.ttf; sourceTree = "<group>"; };
 		FDAA35F628B3600C006FD911 /* NewYorkItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYorkItalic.ttf; sourceTree = "<group>"; };
+		FDAA35F928B4B70F006FD911 /* SwipeContainerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeContainerCell.swift; sourceTree = "<group>"; };
+		FDAA35FE28B4CFC6006FD911 /* StorageIngredientItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageIngredientItem.swift; sourceTree = "<group>"; };
 		FDF531D928AE3CB9006CC337 /* CeMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CeMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDF531DC28AE3CB9006CC337 /* CeMealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeMealApp.swift; sourceTree = "<group>"; };
 		FDF531DE28AE3CB9006CC337 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 				2E5E643528B38E10003759EC /* GroceryList.swift */,
 				2E5E643728B38F23003759EC /* IngredientlistCell.swift */,
 				2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */,
+				FDAA35F928B4B70F006FD911 /* SwipeContainerCell.swift */,
 			);
 			path = SharedComponent;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 			children = (
 				FDF531FB28AE412E006CC337 /* StorageView.swift */,
 				FDAA35F328B35768006FD911 /* StorageListView.swift */,
+				FDAA35FE28B4CFC6006FD911 /* StorageIngredientItem.swift */,
 			);
 			path = StorageView;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 				FDF5320028AE4147006CC337 /* GroceryView.swift in Sources */,
 				FDF5321228AE5566006CC337 /* IngredientPlanItem.swift in Sources */,
 				FDF5320828AE4991006CC337 /* GroceryShoppingPlan.swift in Sources */,
+				FDAA35FF28B4CFC6006FD911 /* StorageIngredientItem.swift in Sources */,
 				FDF531E628AE3CBA006CC337 /* Persistence.swift in Sources */,
 				FDF531F828AE40CD006CC337 /* TabbedView.swift in Sources */,
 				FDF5322E28B355D8006CC337 /* Storage+CoreDataProperties.swift in Sources */,
@@ -331,6 +338,7 @@
 				FDF531E928AE3CBA006CC337 /* CeMeal.xcdatamodeld in Sources */,
 				FDF531DD28AE3CB9006CC337 /* CeMealApp.swift in Sources */,
 				FDF5322828B28B3C006CC337 /* IngredientCategoryView.swift in Sources */,
+				FDAA35FA28B4B710006FD911 /* SwipeContainerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

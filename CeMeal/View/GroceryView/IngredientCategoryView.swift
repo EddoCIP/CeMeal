@@ -16,7 +16,7 @@ struct IngredientCategoryView: View {
             ZStack {
                 Color.gray
                     .ignoresSafeArea()
-                Image("shoppingCart")
+                getCategoryIcon(category: title)
                     .resizable()
                 VStack(alignment: .trailing) {
                     HStack {

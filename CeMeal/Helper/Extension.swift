@@ -99,3 +99,9 @@ extension Date {
         return ""
     }
 }
+
+extension View {
+    func addButtonActions(leadingButtons: [CellButtons], trailingButton: [CellButtons], onClick: @escaping (CellButtons) -> Void) -> some View {
+        self.modifier(SwipeContainerCell(leadingButtons: leadingButtons, trailingButton: trailingButton, onClick: onClick))
+    }
+}

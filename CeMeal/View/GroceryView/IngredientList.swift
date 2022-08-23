@@ -29,7 +29,7 @@ struct IngredientList: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(searchResult) { item in
+                    ForEach(ingredientList) { item in
                         let isActive = self.selectedIngredients.contains(item)
                         
                         IngredientPlanItem(ingredient: item, isActive: isActive) {
@@ -42,13 +42,14 @@ struct IngredientList: View {
                         }
                     }
                 }
-                .searchable(text: $searchKeyword, placement: .navigationBarDrawer(displayMode: .always), prompt: "What ingredients do you need?")
+//                .searchable(text: $searchKeyword, placement: .navigationBarDrawer(displayMode: .always), prompt: "What ingredients do you need?")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             if !selectedIngredients.isEmpty {
                                 groceryVM.saveIngredientsToGrocery(ingredients: selectedIngredients)
                                 self.presentationMode.wrappedValue.dismiss()
+                                selectedIngredients = []
                             }
                         } label: {
                             Text("Add To List")
@@ -72,15 +73,15 @@ struct IngredientList: View {
         }
     }
     
-    var searchResult: [Ingredient] {
-        if searchKeyword.isEmpty {
-            return ingredientList
-        } else {
-            return ingredientList.filter { item in
-                return String(item.name ?? "").contains(searchKeyword)
-            }
-        }
-    }
+//    var searchResult: [Ingredient] {
+//        if searchKeyword.isEmpty {
+//            return ingredientList
+//        } else {
+//            return ingredientList.filter { item in
+//                return String(item.name ?? "").contains(searchKeyword)
+//            }
+//        }
+//    }
 }
 
 struct IngredientList_Previews: PreviewProvider {

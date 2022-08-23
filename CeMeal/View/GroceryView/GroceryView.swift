@@ -80,7 +80,7 @@ struct GroceryView: View {
                                     .frame(height: 60)
                                     .swipeActions {
                                         Button(role: .destructive, action: {
-                                            
+                                            groceryVM.removeIngredientFromGrocery(grocery: item)
                                         }, label: {
                                             Image(systemName: "trash")
                                         })
@@ -93,12 +93,15 @@ struct GroceryView: View {
                                 .frame(height: 5)
                                 .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                             }
-                            .listRowBackground(Color.lightGray)
+                            .listRowBackground(Color.clear)
                             .padding(.trailing, -20)
                         }
+                        .listItemTint(Color.clear)
+                        .background(Color.clear)
                         .listStyle(GroupedListStyle())
                         Button {
                             groceryVM.saveGroceriesToStorage(groceries: doneGroceries)
+                            doneGroceries = []
                         } label: {
                             Text("Add to storage")
                                 .frame(width: 209, height: 46)
@@ -108,16 +111,15 @@ struct GroceryView: View {
                         .if(!isSettingActive) { button in
                             button.hidden()
                         }
+                        NavigationLink(isActive: $isNavActive) {
+                            ShoppingPlanV2()
+                        } label: {
+                            Text("")
+                        }
+                        .hidden()
 
                     }
-                    .background(Color.lightGray)
-                }
-            }
-            .background {
-                NavigationLink(isActive: $isNavActive) {
-                    ShoppingPlanV2()
-                } label: {
-                    Text("")
+                    .background(Color.clear)
                 }
             }
             

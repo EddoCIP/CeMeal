@@ -22,8 +22,20 @@ extension Storage {
     @NSManaged public var expireDate: Date?
     @NSManaged public var storedIngredient: Ingredient?
 
-    var age : Int {
+    public var age : Int {
         return Date().days(from: self.storedDate ?? Date())
+    }
+    
+    public var isGood: Bool {
+        return age <= storedIngredient?.goodAge ?? 0
+    }
+    
+    public var isSafe: Bool {
+        return age > storedIngredient?.goodAge ?? 0 && age <= storedIngredient?.carefulAge ?? 0
+    }
+    
+    public var isDanger: Bool {
+        return age > storedIngredient?.carefulAge ?? 0
     }
 }
 

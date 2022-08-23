@@ -14,12 +14,6 @@ struct IngredientPlanItem: View {
     
     var body: some View {
         VStack {
-            Text("\(ingredient.name ?? "Unknown")\n")
-                .multilineTextAlignment(.center)
-                .lineLimit(2)
-                .foregroundColor(Color.darkGreen)
-                .font(.system(size: 15, weight: .semibold, design: .default))
-            Spacer()
             AsyncImage(url: URL(string: ingredient.imageUrl ?? "")) { phase in
                 if let image = phase.image {
                     image.resizable()
@@ -38,6 +32,12 @@ struct IngredientPlanItem: View {
                     .stroke(isActive ? Color.green : Color.gray, lineWidth: isActive ? 10: 1)
             )
             .cornerRadius(90)
+            Spacer()
+            Text("\(ingredient.name ?? "Unknown")\n")
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+                .foregroundColor(Color.darkGreen)
+                .font(.system(size: 15, weight: .semibold, design: .default))
         }
         .fixedSize(horizontal: false, vertical: true)
         .onTapGesture {

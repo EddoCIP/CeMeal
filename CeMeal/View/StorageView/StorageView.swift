@@ -12,6 +12,10 @@ struct StorageView: View {
     
     @State private var isShowSheet: Bool = false
     
+    let rows = [
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -44,7 +48,7 @@ struct StorageView: View {
                         .shadow(radius: 10)
                     HStack {
                         Spacer()
-                        Text("\(storageVM.mustThrowIngredient.count) item(s)")
+                        Text("\(storageVM.storageList.count) item(s)")
                             .foregroundColor(Color.lightGreen)
                             .font(.caption)
                             .fontWeight(.bold)
@@ -67,11 +71,13 @@ struct StorageView: View {
                         Text("Please pay special attention to these items")
                             .newYorkFont(size: 16)
                             .foregroundColor(Color.white.opacity(0.71))
-                        List {
-                            ForEach(storageVM.mustThrowIngredient) { item in
-                                //                            GroceryItem(grocery: item)
+                        ScrollView(.horizontal) {
+                            LazyHGrid(rows: rows) {
+                                ForEach(storageVM.mustThrowIngredient) { item in
+                                    // MARK: TODO implement custom view
+                                }
                             }
-                        }.listStyle(.plain)
+                        }
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)

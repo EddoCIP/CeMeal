@@ -101,6 +101,7 @@ struct GroceryItem: View {
                 view.hidden()
             }
         }
+        .frame(height: 60)
     }
 }
 

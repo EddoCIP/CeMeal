@@ -59,24 +59,19 @@ class StorageViewModel: ObservableObject {
     
     var mustThrowIngredient : [Storage] {
         return storageList.filter { storedItem in
-            let ingredientAge = Date().days(from: storedItem.storedDate ?? Date())
-            
-            return ingredientAge > storedItem.storedIngredient?.carefulAge ?? 0
+            return storedItem.isDanger
         }
     }
     
     var safeToConsumeIngredient: [Storage] {
         return storageList.filter { storedItem in
-            let isGood = storedItem.age <= storedItem.storedIngredient?.goodAge ?? 0
-            let isCareful = storedItem.age <= storedItem.storedIngredient?.carefulAge ?? 0
-            
-            return isCareful && !isGood
+            return storedItem.isSafe
         }
     }
     
     var freshIngredient: [Storage] {
         return storageList.filter { storedItem in
-            return storedItem.age <= storedItem.storedIngredient?.goodAge ?? 0
+            return storedItem.isGood
         }
     }
 }

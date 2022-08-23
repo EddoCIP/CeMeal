@@ -15,7 +15,7 @@ class IngredientViewModel: ObservableObject {
     
     init() {
         loadIngredient()
-//        searchIngredient()
+        //        searchIngredient()
     }
     
     func loadIngredient() {
@@ -50,7 +50,17 @@ class IngredientViewModel: ObservableObject {
         }
     }
     
+    var ingredientSearchResult : [Ingredient] {
+        if searchQuery.isEmpty {
+            return ingredientList
+        } else {
+            return ingredientList.filter { item in
+                return String(item.name?.lowercased() ?? "").contains(searchQuery.lowercased())
+            }
+        }
+    }
+    
     var groupedIngredientByCategory: Dictionary<String, [Array<Ingredient>.Element]> {
-        return Dictionary(grouping: ingredientList) { $0.category ?? "" }
+        return Dictionary(grouping: ingredientSearchResult) { $0.category ?? "" }
     }
 }

@@ -45,6 +45,14 @@ class GroceryViewModel: ObservableObject {
         save()
     }
     
+    func removeIngredientFromGrocery(grocery: Grocery) {
+        let moc = PersistenceController.shared.container.viewContext
+        
+        moc.delete(grocery)
+        
+        save()
+    }
+    
     func saveIngredientsToGrocery(ingredients: [Ingredient]) {
         for item in ingredients {
             let grocery = Grocery(context: PersistenceController.shared.container.viewContext)
