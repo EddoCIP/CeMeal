@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E30BB4728B5266A00ADF735 /* MainMenuCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30BB4628B5266A00ADF735 /* MainMenuCard.swift */; };
 		2E5E643628B38E10003759EC /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643528B38E10003759EC /* GroceryList.swift */; };
 		2E5E643828B38F23003759EC /* IngredientlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643728B38F23003759EC /* IngredientlistCell.swift */; };
 		2E5E643C28B3BDCF003759EC /* StepperGrocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E30BB4628B5266A00ADF735 /* MainMenuCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCard.swift; sourceTree = "<group>"; };
 		2E5E643528B38E10003759EC /* GroceryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
 		2E5E643728B38F23003759EC /* IngredientlistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientlistCell.swift; sourceTree = "<group>"; };
 		2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperGrocery.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				2E5E643728B38F23003759EC /* IngredientlistCell.swift */,
 				2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */,
 				FDAA35F928B4B70F006FD911 /* SwipeContainerCell.swift */,
+				2E30BB4628B5266A00ADF735 /* MainMenuCard.swift */,
 			);
 			path = SharedComponent;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				FDF5321C28AFC8FD006CC337 /* ShoppingPlanV2.swift in Sources */,
 				FDF5321428AE8E16006CC337 /* Enums.swift in Sources */,
 				FDF5320028AE4147006CC337 /* GroceryView.swift in Sources */,
+				2E30BB4728B5266A00ADF735 /* MainMenuCard.swift in Sources */,
 				FDF5321228AE5566006CC337 /* IngredientPlanItem.swift in Sources */,
 				FDF5320828AE4991006CC337 /* GroceryShoppingPlan.swift in Sources */,
 				FDAA35FF28B4CFC6006FD911 /* StorageIngredientItem.swift in Sources */,
