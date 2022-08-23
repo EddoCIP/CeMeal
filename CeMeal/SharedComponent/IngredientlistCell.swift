@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct IngredientlistCell: View {
+    @Environment(\.locale) var locale
     var storage: Storage
     
     var body: some View {
         
         HStack {
             HStack {
-//                Spacer()
+                //                Spacer()
                 AsyncImage(url: URL(string: storage.storedIngredient?.imageUrl ?? "")) { phase in
                     if let image = phase.image {
                         image.resizable()
@@ -30,7 +31,7 @@ struct IngredientlistCell: View {
             .frame(width: 90, height: 85)
             Spacer()
             VStack (alignment: .leading) {
-                Text("\(storage.storedIngredient?.name ?? "Unknown")")
+                Text("\(locale == Locale.init(identifier: "id") ?   storage.storedIngredient?.nama ?? "Unknown" : storage.storedIngredient?.name ?? "Unknown")")
                     .font(.body)
                     .fontWeight(.semibold)
                     .foregroundColor(Color.darkGreen)
@@ -62,7 +63,7 @@ struct IngredientlistCell: View {
             
         }
         .background(Color.white)
-//        .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
+        //        .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
     }
 }
 

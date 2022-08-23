@@ -111,16 +111,15 @@ struct GroceryView: View {
                         .if(!isSettingActive) { button in
                             button.hidden()
                         }
-                        NavigationLink(isActive: $isNavActive) {
-                            ShoppingPlanV2()
-                        } label: {
-                            Text("")
-                        }
-                        .hidden()
-
                     }
                     .background(Color.clear)
                 }
+                NavigationLink(isActive: $isNavActive) {
+                    ShoppingPlanV2()
+                } label: {
+                    Text("")
+                }
+                .hidden()
             }
             
             .navigationBarTitleDisplayMode(.inline)

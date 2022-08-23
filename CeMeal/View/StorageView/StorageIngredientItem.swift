@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct StorageIngredientItem: View {
+    @Environment(\.locale) var locale
+    
     var storage: Storage
     
     var body: some View {
@@ -25,7 +27,7 @@ struct StorageIngredientItem: View {
                 .frame(width: 58, height: 58)
             }
             VStack(alignment: .leading) {
-                Text("\(storage.storedIngredient?.name ?? "Unknown")")
+                Text("\(locale == Locale.init(identifier: "id") ?   storage.storedIngredient?.nama ?? storage.storedIngredient?.name ?? "Unknown" : storage.storedIngredient?.name ?? "Unknown")")
                     .font(.body)
                     .fontWeight(.semibold)
                     .foregroundColor(Color.darkGreen)

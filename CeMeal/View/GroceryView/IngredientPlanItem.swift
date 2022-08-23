@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct IngredientPlanItem: View {
+    @Environment(\.locale) var locale
+    
     var ingredient: Ingredient
     var isActive: Bool = false
     var action: () -> Void
@@ -33,7 +35,7 @@ struct IngredientPlanItem: View {
             )
             .cornerRadius(90)
             Spacer()
-            Text("\(ingredient.name ?? "Unknown")\n")
+            Text("\(locale == Locale.init(identifier: "id") ?   ingredient.nama ?? ingredient.name ?? "Unknown" : ingredient.name ?? "Unknown")\n")
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
                 .foregroundColor(Color.darkGreen)

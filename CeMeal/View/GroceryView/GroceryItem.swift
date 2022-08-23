@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GroceryItem: View {
+    @Environment(\.locale) var locale
+    
     var grocery: Grocery
     @Binding var doneGroceries: [Grocery]
     @Binding var isSettingActive: Bool
@@ -40,10 +42,10 @@ struct GroceryItem: View {
                                 ProgressView()
                             }
                         }
-                            .frame(width: 52, height: 52)
+                        .frame(width: 52, height: 52)
                     }
                     .frame(width: 96, height: 60)
-                    Text("\(grocery.groceryToIngredient?.name ?? "unknown")")
+                    Text("\(locale == Locale.init(identifier: "id") ? grocery.groceryToIngredient?.nama ?? grocery.groceryToIngredient?.name ?? "Unknown" : grocery.groceryToIngredient?.name ?? "Unknown")")
                         .font(.title2)
                         .if(isDone) { view in
                             view.strikethrough()
@@ -67,7 +69,7 @@ struct GroceryItem: View {
                             }
                         }
                     }
-//                    Spacer()
+                    //                    Spacer()
                 }
             }
             HStack {

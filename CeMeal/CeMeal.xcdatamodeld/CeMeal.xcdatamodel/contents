@@ -18,6 +18,7 @@
         <attribute name="goodAge" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="nama" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="ingredientToConsume" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ConsumedIngredient" inverseName="consumeToIngredient" inverseEntity="ConsumedIngredient"/>
         <relationship name="ingredientToGrocery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Grocery" inverseName="groceryToIngredient" inverseEntity="Grocery"/>
@@ -40,7 +41,7 @@
     <elements>
         <element name="ConsumedIngredient" positionX="18" positionY="126" width="128" height="89"/>
         <element name="Grocery" positionX="-36" positionY="36" width="128" height="89"/>
-        <element name="Ingredient" positionX="-54" positionY="-9" width="128" height="179"/>
+        <element name="Ingredient" positionX="-54" positionY="-9" width="128" height="194"/>
         <element name="Storage" positionX="0" positionY="99" width="128" height="104"/>
         <element name="TrashedIngredient" positionX="-18" positionY="81" width="128" height="89"/>
     </elements>

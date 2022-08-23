@@ -55,7 +55,9 @@ class IngredientViewModel: ObservableObject {
             return ingredientList
         } else {
             return ingredientList.filter { item in
-                return String(item.name?.lowercased() ?? "").contains(searchQuery.lowercased())
+                return
+                    String(item.name?.lowercased() ?? "").contains(searchQuery.lowercased()) ||
+                String(item.nama?.lowercased() ?? "").contains(searchQuery.lowercased())
             }
         }
     }

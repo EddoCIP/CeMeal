@@ -30,7 +30,8 @@ func loadIngredientFromCSV() {
             
             let ingredient = Ingredient(context: context)
             ingredient.id = UUID()
-            ingredient.name = csvColumns[1]
+            ingredient.nama = csvColumns[1]
+            ingredient.name = csvColumns[2]
             ingredient.category = csvColumns[0]
             ingredient.goodAge = Int16(csvColumns[3]) ?? 0
             ingredient.carefulAge = Int16(csvColumns[4]) ?? 0
