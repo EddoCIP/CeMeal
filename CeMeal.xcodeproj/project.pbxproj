@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2E30BB4728B5266A00ADF735 /* MainMenuCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E30BB4628B5266A00ADF735 /* MainMenuCard.swift */; };
 		2E39D32E28B628EE009D2076 /* InputIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E39D32D28B628EE009D2076 /* InputIngredient.swift */; };
+		2E39D33028B696AA009D2076 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E39D32F28B696AA009D2076 /* LocalNotification.swift */; };
 		2E5E643628B38E10003759EC /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643528B38E10003759EC /* GroceryList.swift */; };
 		2E5E643828B38F23003759EC /* IngredientlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643728B38F23003759EC /* IngredientlistCell.swift */; };
 		2E5E643C28B3BDCF003759EC /* StepperGrocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		2E30BB4628B5266A00ADF735 /* MainMenuCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuCard.swift; sourceTree = "<group>"; };
 		2E39D32D28B628EE009D2076 /* InputIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputIngredient.swift; sourceTree = "<group>"; };
+		2E39D32F28B696AA009D2076 /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		2E5E643528B38E10003759EC /* GroceryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryList.swift; sourceTree = "<group>"; };
 		2E5E643728B38F23003759EC /* IngredientlistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientlistCell.swift; sourceTree = "<group>"; };
 		2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperGrocery.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				FD84BF7628B63B8000AAACC4 /* ImagePicker.swift */,
 				FD84BF7A28B63C0200AAACC4 /* CameraView.swift */,
 				FD84BF7C28B642C300AAACC4 /* AsyncImageView.swift */,
+				2E39D32F28B696AA009D2076 /* LocalNotification.swift */,
 			);
 			path = SharedComponent;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				FD84BF7B28B63C0200AAACC4 /* CameraView.swift in Sources */,
 				FD84BF7728B63B8000AAACC4 /* ImagePicker.swift in Sources */,
 				FDF5320C28AE4FA0006CC337 /* GroceryItem.swift in Sources */,
+				2E39D33028B696AA009D2076 /* LocalNotification.swift in Sources */,
 				FDF5322A28B33989006CC337 /* StorageViewModel.swift in Sources */,
 				2E5E643C28B3BDCF003759EC /* StepperGrocery.swift in Sources */,
 				2E5E643628B38E10003759EC /* GroceryList.swift in Sources */,
