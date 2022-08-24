@@ -10,6 +10,8 @@ import SwiftUI
 struct StorageView: View {
     @StateObject var storageVM : StorageViewModel = .init()
     @FetchRequest(sortDescriptors: []) var storageList : FetchedResults <Storage>
+    @FetchRequest(sortDescriptors: []) var consumeList : FetchedResults <ConsumedIngredient>
+    @FetchRequest(sortDescriptors: []) var trashList : FetchedResults <TrashedIngredient>
     
     @State private var isShowSheet: Bool = false
     
@@ -54,26 +56,24 @@ struct StorageView: View {
                             .font(.caption)
                             .fontWeight(.bold)
                     }
-                    
-                    if storageVM.mustThrowIngredient.isEmpty {
-                        VStack(spacing: 15) {
-                            Spacer()
-                            Image("vegetables")
-                                .resizable()
-                                .frame(width: 127, height: 127)
-                                .foregroundColor(Color.lightOrange)
-                            Text("your ingredients are safe!")
-                                .foregroundColor(Color.lightOrange)
-                                .font(.callout)
-                                .bold()
-                            Spacer()
-                        }
-                    } else {
-                        dashboardWithIngredients()
+                    VStack {
+                        attentionDashboard()
+                            .background(Color.darkGreen.opacity(0.5))
+                            .cornerRadius(20)
+                            .padding(.horizontal)
+                            .padding(.bottom, 10)
+                        
+                        foodHistoryDashboard()
+                            .background(Color.darkGreen.opacity(0.5))
+                            .cornerRadius(20)
+                            .padding(.horizontal)
                     }
+//                    .padding(.horizontal)
+                    
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .padding(.horizontal)
+                .padding(.bottom, 20)
                 .sheet(isPresented: $isShowSheet) {
                     StorageListView(storageVM: storageVM)
                 }
@@ -84,48 +84,82 @@ struct StorageView: View {
         }
     }
     
-    func subTitleDashboard(subtitle: String) -> some View {
+    func attentionDashboard() -> some View {
         VStack {
-            Divider()
-                .background(Color.white)
-                .shadow(radius: 10)
             HStack {
-                Text(subtitle)
+                Text("Items that need special attention")
                     .font(.callout)
                     .foregroundColor(Color.white.opacity(0.71))
                 Spacer()
             }
-            Divider()
-                .background(Color.white)
-                .shadow(radius: 10)
-        }
-    }
-    
-    func dashboardWithIngredients() -> some View {
-        VStack {
-            subTitleDashboard(subtitle: "Items that need special attention")
-            ScrollView(.horizontal, showsIndicators: true) {
-                LazyHGrid(rows: rows) {
-                    ForEach(storageVM.dashboardStorage) { item in
-                        MainMenuCard(storage: item)
+            .padding(.leading, 15)
+            .padding(.top, 10)
+            
+            if storageVM.dashboardStorage.isEmpty {
+                VStack(spacing: 15) {
+                    Spacer()
+                    Image("vegetables")
+                        .resizable()
+                        .frame(width: 108, height: 108)
+                        .foregroundColor(Color.lightOrange)
+                    Text("your ingredients are safe!")
+                        .foregroundColor(Color.lightOrange.opacity(0.5))
+                        .font(.callout)
+                        .bold()
+                    Spacer()
+                }
+            } else {
+                ScrollView(.horizontal, showsIndicators: true) {
+                    LazyHGrid(rows: rows) {
+                        ForEach(storageVM.dashboardStorage) { item in
+                            MainMenuCard(storage: item)
+                        }
                     }
                 }
             }
-            Spacer()
-            subTitleDashboard(subtitle: "Your Food History")
-            Spacer()
-            ConsumedIngredientSummary()
-            .padding()
-            .frame(width: 340, height: 90)
-            .background(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-            TrashedIngredientSummary()
-            .padding()
-            .frame(width: 340, height: 90)
-            .background(Color.white)
-            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-            Spacer()
         }
+        .padding(.bottom, 15)
+    }
+    
+    func foodHistoryDashboard() -> some View {
+        VStack {
+            HStack {
+                Text("Your food history")
+                    .font(.callout)
+                    .foregroundColor(Color.white.opacity(0.71))
+                Spacer()
+            }
+            .padding(.leading, 15)
+            .padding(.top, 10)
+            
+            if consumeList.isEmpty && trashList.isEmpty {
+                VStack(alignment: .center) {
+                    Spacer()
+                    Text("no food history")
+                        .foregroundColor(Color.lightOrange.opacity(0.5))
+                        .font(.callout)
+                        .bold()
+                    Spacer()
+                }
+            } else {
+                VStack {
+                    ConsumedIngredientSummary()
+                    .padding()
+                    .frame(height: 90)
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                    TrashedIngredientSummary()
+                    .padding()
+                    .frame(height: 90)
+                    .background(Color.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                    Spacer()
+                }
+                .padding(.horizontal)
+                .padding(.bottom)
+            }
+        }
+//        .padding(.bottom, 15)
     }
 }
 

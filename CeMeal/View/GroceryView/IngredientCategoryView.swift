@@ -16,7 +16,6 @@ struct IngredientCategoryView: View {
             ZStack {
                 Color(uiColor: UIColor(red: 88, green: 87, blue: 85, alpha: 100))
                     .ignoresSafeArea()
-//                    .opacity(0.22)
                 getCategoryIcon(category: title)
                     .resizable()
                 VStack(alignment: .trailing) {

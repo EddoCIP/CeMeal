@@ -41,7 +41,7 @@ struct TabbedView: View {
         .onAppear {
             if ingredients.isEmpty {
                 loadIngredientFromCSV()
-                loadIngredientToStorage()
+//                loadIngredientToStorage()
 //                setTrashedIngredient()
             }
         }
