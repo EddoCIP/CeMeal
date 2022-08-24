@@ -42,7 +42,7 @@ struct IngredientlistCell: View {
                         .font(.footnote)
                 } else if storage.isSafe {
                     Label("\(storage.age) days old", systemImage: "staroflife.circle")
-                        .foregroundColor(Color.lightOrange)
+                        .foregroundColor(Color.orange)
                         .font(.footnote)
                 } else {
                     Label("\(storage.age) days old", systemImage: "exclamationmark.circle")

@@ -14,6 +14,18 @@ struct ConsumedIngredientSummary: View {
         consumeList.map { Int($0.quantity) }.reduce(0, +)
     }
     
+    var countPerIngredient: [Dictionary<String, Int>.Element] {
+        var result = [String: Int]()
+        let dictionary = Dictionary(grouping: consumeList) { $0.consumeToIngredient?.name ?? "" }
+        
+        for key in dictionary.keys {
+            let filteredRecord = consumeList.filter { $0.consumeToIngredient?.name ?? "" == key }
+            result[key] = filteredRecord.map {Int($0.quantity)}.reduce(0, +)
+        }
+        
+        return result.sorted { $0.value > $1.value}
+    }
+    
     var body: some View {
         HStack {
             Image(systemName: "fork.knife")
@@ -32,12 +44,14 @@ struct ConsumedIngredientSummary: View {
                 }
                 .padding(.bottom, 5)
                 Divider()
-                HStack {
-                    Text("You seem to like eggs, stick to it!")
-                        .newYorkFont(size: 12)
-                        .multilineTextAlignment(.leading)
-                        .fixedSize(horizontal: false, vertical: true)
-                    Spacer()
+                if !countPerIngredient.isEmpty {
+                    HStack {
+                        Text("You seem to like \(countPerIngredient[0].key.lowercased()), stick to it!")
+                            .newYorkFont(size: 12)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Spacer()
+                    }
                 }
                 Spacer()
             }

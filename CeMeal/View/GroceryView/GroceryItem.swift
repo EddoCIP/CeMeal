@@ -47,7 +47,7 @@ struct GroceryItem: View {
                     .frame(width: 96, height: 60)
                     Text("\(locale == Locale.init(identifier: "id") ? grocery.groceryToIngredient?.nama ?? grocery.groceryToIngredient?.name ?? "Unknown" : grocery.groceryToIngredient?.name ?? "Unknown")")
                         .font(.title2)
-                        .if(isDone) { view in
+                        .if(isDone && isSettingActive) { view in
                             view.strikethrough()
                         }
                     Spacer()
@@ -61,6 +61,7 @@ struct GroceryItem: View {
                             .onTapGesture {
                                 showStepper.toggle()
                             }
+//                            .shadow(radius: 2)
                         if showStepper {
                             StepperGrocery {
                                 let impactMed = UIImpactFeedbackGenerator(style: .medium)

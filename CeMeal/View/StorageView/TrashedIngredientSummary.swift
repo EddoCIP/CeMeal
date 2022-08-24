@@ -15,6 +15,18 @@ struct TrashedIngredientSummary: View {
         trashList.map { Int($0.quantity) }.reduce(0, +)
     }
     
+    var countPerIngredient: [Dictionary<String, Int>.Element] {
+        var result = [String: Int]()
+        let dictionary = Dictionary(grouping: trashList) { $0.trashToIngredient?.name ?? "" }
+        
+        for key in dictionary.keys {
+            let filteredRecord = trashList.filter { $0.trashToIngredient?.name ?? "" == key }
+            result[key] = filteredRecord.map {Int($0.quantity)}.reduce(0, +)
+        }
+        
+        return result.sorted { $0.value > $1.value}
+    }
+    
     var body: some View {
         HStack {
             Image(systemName: "trash.fill")
@@ -33,41 +45,16 @@ struct TrashedIngredientSummary: View {
                 }
                 .padding(.bottom, 5)
                 Divider()
-                HStack {
-                    Text("Never buy cucumbers again, you always dump them..")
-                        .newYorkFont(size: 12)
-                        .multilineTextAlignment(.leading)
-                        .fixedSize(horizontal: false, vertical: true)
+                if !countPerIngredient.isEmpty {
+                    HStack {
+                        Text("Never buy \(countPerIngredient[0].key.lowercased()) again, you always dump them..")
+                            .newYorkFont(size: 12)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                 }
                 Spacer()
             }
-        }
-        .onAppear {
-            summary()
-        }
-    }
-    
-    func summary() {
-        let moc = PersistenceController.shared.container.viewContext
-        
-        let keypathExp1 = NSExpression(forKeyPath: "trashToIngredient.name")
-        let expression = NSExpression(forFunction: "sum:", arguments: [keypathExp1])
-        let sumDesc = NSExpressionDescription()
-        sumDesc.expression = expression
-        sumDesc.name = "sum"
-        sumDesc.expressionResultType = .integer64AttributeType
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "TrashedIngredient")
-        request.returnsObjectsAsFaults = false
-        request.propertiesToGroupBy = ["trashToIngredient.name"]
-        request.propertiesToFetch = [sumDesc]
-        request.resultType = .dictionaryResultType
-        
-        do {
-            let a = try moc.fetch(request)
-            print(a)
-        } catch {
-            print(error.localizedDescription)
         }
     }
 }

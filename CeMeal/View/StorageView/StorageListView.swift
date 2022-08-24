@@ -29,7 +29,7 @@ struct StorageListView: View {
                     }
                     .headerProminence(.increased)
                     .listRowBackground(Color.clear)
-                    .listRowInsets(.init(top: 5, leading: 2, bottom: 2, trailing: 2))
+                    .listRowInsets(.init(top: 2, leading: 2, bottom: 2, trailing: 2))
                 }
                 
                 if !storageVM.safeToConsumeIngredient.isEmpty {
@@ -46,7 +46,7 @@ struct StorageListView: View {
                     }
                     .headerProminence(.increased)
                     .listRowBackground(Color.clear)
-                    .listRowInsets(.init(top: 5, leading: 2, bottom: 2, trailing: 2))
+                    .listRowInsets(.init(top: 2, leading: 2, bottom: 2, trailing: 2))
                 }
                 
                 if !storageVM.freshIngredient.isEmpty {
@@ -63,9 +63,11 @@ struct StorageListView: View {
                     }
                     .headerProminence(.increased)
                     .listRowBackground(Color.clear)
-                    .listRowInsets(.init(top: 5, leading: 2, bottom: 2, trailing: 2))
+                    .listRowInsets(.init(top: 7, leading: 2, bottom: 2, trailing: 2))
                 }
             }
+            .listStyle(.plain)
+            .padding(.horizontal, 20)
             .background(Color.lightGray)
             .navigationTitle("All ingredients list")
             .navigationBarTitleDisplayMode(.inline)
@@ -78,6 +80,7 @@ struct StorageListView: View {
                             Image(systemName: "chevron.left")
                             Text("Storage")
                         }
+                        .foregroundColor(Color.darkGreen)
                     }
                 }
             }
@@ -110,6 +113,10 @@ struct StorageListView: View {
                     .tint(Color.red)
                 }
                 .shadow(color: .black, radius: 2, x: 0, y: 2)
+            HStack {
+                EmptyView()
+            }
+            .frame(height: 1)
         }
     }
 }

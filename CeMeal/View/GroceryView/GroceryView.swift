@@ -34,7 +34,8 @@ struct GroceryView: View {
                         .foregroundColor(Color.darkGreen)
                     Spacer()
                     Text(Image(systemName: "plus.square"))
-                        .font(.custom("SF Compact Display", size: 36))
+                        .font(.system(size: 36))
+//                        .font(.custom("SF Compact Display", size: 36))
                         .fontWeight(.thin)
                         .foregroundColor(Color.darkGreen)
                         .onTapGesture {
@@ -75,9 +76,11 @@ struct GroceryView: View {
                     VStack {
                         List {
                             ForEach(groceries) { item in
+                                HStack {
+                                    EmptyView()
+                                }
+                                .frame(height: 1)
                                 GroceryItem(grocery: item, doneGroceries: $doneGroceries, isSettingActive: $isSettingActive)
-                                    .clipShape(RoundedCorner(radius: 17, corners: [.bottomLeft, .topLeft]))
-                                    .frame(height: 60)
                                     .swipeActions {
                                         Button(role: .destructive, action: {
                                             groceryVM.removeIngredientFromGrocery(grocery: item)
@@ -86,16 +89,15 @@ struct GroceryView: View {
                                         })
                                         .tint(Color.red)
                                     }
+                                    .frame(height: 80)
+                                    .clipShape(RoundedCorner(radius: 17, corners: [.bottomLeft, .topLeft]))
                                     .shadow(radius: 5)
-                                HStack {
-                                    Spacer()
-                                }
-                                .frame(height: 10)
-                                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                                    .listRowInsets(EdgeInsets(top: -8, leading: 0, bottom: -8, trailing: 0))
                             }
                             .listRowBackground(Color.clear)
-                            .padding(.trailing, -20)
+                            .padding(.leading, 10)
                         }
+                        .listSectionSeparatorTint(.black, edges: .bottom)
                         .listItemTint(Color.clear)
                         .background(Color.clear)
                         .listStyle(.plain)

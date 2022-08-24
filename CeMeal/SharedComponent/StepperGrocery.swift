@@ -38,6 +38,7 @@ struct StepperGrocery: View {
         }
         .frame(width: 69, height: 34)
         .cornerRadius(17)
+        .shadow(radius: 2)
     }
 }
 
