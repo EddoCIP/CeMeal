@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct InputIngredient: View {
-    @State var ingredient = ""
     
     var body: some View {
         VStack {
