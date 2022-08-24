@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StorageView: View {
     @StateObject var storageVM : StorageViewModel = .init()
+    @FetchRequest(sortDescriptors: []) var storageList : FetchedResults <Storage>
     
     @State private var isShowSheet: Bool = false
     
@@ -79,7 +80,7 @@ struct StorageView: View {
             }
         }
         .onAppear {
-            storageVM.loadStorage()
+//            storageVM.loadStorage()
         }
     }
     
@@ -130,6 +131,6 @@ struct StorageView: View {
 
 struct StorageView_Previews: PreviewProvider {
     static var previews: some View {
-        StorageView()
+        StorageView(storageVM: StorageViewModel())
     }
 }

@@ -32,7 +32,7 @@ struct MainMenuCard: View {
             .background(Color.white)
             Text("\(storage.isDanger ? notSafeRemark : safeRemark)")
                 .newYorkFont(size: 14)
-                .foregroundColor(storage.isDanger ? Color.darkRed : Color.lightOrange)
+                .foregroundColor(storage.isDanger ? Color.darkRed : Color.orange)
                 .multilineTextAlignment(.leading)
                 .frame(width: 98)
             Spacer()
@@ -43,7 +43,7 @@ struct MainMenuCard: View {
                     .fontWeight(.semibold)
             }
             .font(.custom("SF Compact Display", size: 13, relativeTo: .footnote))
-            .foregroundColor(storage.isDanger ? Color.darkRed : Color.lightOrange)
+            .foregroundColor(storage.isDanger ? Color.darkRed : Color.orange)
             .lineLimit(1)
         }
         .padding(2)
