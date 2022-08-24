@@ -36,11 +36,13 @@ struct IngredientList: View {
                     } label: {
                         VStack {
                             Image(systemName: "plus")
-                                .aspectRatio(contentMode: .fit)
-                                .padding(8)
+                                .font(.title2)
+//                                .aspectRatio(contentMode: .fit)
+//                                .padding(8)
                                 .frame(width: 70, height: 70)
-                                .background(Color.gray)
+                                .background(Color(uiColor: UIColor(red: 211, green: 211, blue: 211, alpha: 100)))
                                 .cornerRadius(90)
+                                .shadow(color: Color.lightShadowColor, radius: 1, x: 2, y: 2)
                             Text("Create new" + "\n")
                                 .multilineTextAlignment(.center)
                                 .lineLimit(2)

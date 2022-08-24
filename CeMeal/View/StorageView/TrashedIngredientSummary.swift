@@ -31,12 +31,13 @@ struct TrashedIngredientSummary: View {
         HStack {
             Image(systemName: "trash.fill")
                 .font(.custom("SF Compact Display", size: 28, relativeTo: .title))
-                .foregroundColor(Color.darkRed)
+                .foregroundColor(Color.lightRed)
             VStack(alignment: .leading, spacing: 0) {
                 HStack {
-                    Text("Trashed")
+                    Text("Thrown Away")
                         .font(.custom("SF Pro Display", size: 20, relativeTo: .title3))
                         .fontWeight(.medium)
+                        .foregroundColor(Color.semiDarkGray)
                     Spacer()
                     Text("\(totalCount) items")
                         .font(.custom("SF Compact Display", size: 13, relativeTo: .footnote))
@@ -45,9 +46,11 @@ struct TrashedIngredientSummary: View {
                 }
                 .padding(.bottom, 5)
                 Divider()
+                    .padding(.bottom, 5)
                 if !countPerIngredient.isEmpty {
                     HStack {
                         Text("Never buy \(countPerIngredient[0].key.lowercased()) again, you always dump them..")
+                            .foregroundColor(Color.darkRed)
                             .font(.footnote)
                             .multilineTextAlignment(.leading)
                             .fixedSize(horizontal: false, vertical: true)

@@ -18,7 +18,9 @@ struct MainMenuCard: View {
     var body: some View {
         VStack(alignment: .center) {
             Text("\(locale == Locale.init(identifier: "id") ?   storage.storedIngredient?.nama ?? "Unknown" : storage.storedIngredient?.name ?? "Unknown")")
+                .foregroundColor(Color.semiDarkGray)
                 .lineLimit(1)
+                .padding(.top, 5)
             
             AsyncImageView(imageUrl: storage.storedIngredient?.imageUrl ?? "")
             .frame(width: 80, height: 80, alignment: .center)
@@ -27,7 +29,8 @@ struct MainMenuCard: View {
                 .font(.footnote)
                 .foregroundColor(storage.isDanger ? Color.darkRed : Color.orange)
                 .multilineTextAlignment(.leading)
-                .frame(width: 98)
+                .lineSpacing(-5)
+                .frame(width: 110)
             Spacer()
             
             HStack {
@@ -38,9 +41,10 @@ struct MainMenuCard: View {
             .font(.custom("SF Compact Display", size: 13, relativeTo: .footnote))
             .foregroundColor(storage.isDanger ? Color.darkRed : Color.orange)
             .lineLimit(1)
+            .padding(.bottom, 7)
         }
         .padding(2)
-        .frame(width: 120, height: 229)
+        .frame(width: 130, height: 229)
         .background(Color.white)
         .clipShape(RoundedRectangle(cornerRadius: 7))
         .shadow(color: .black, radius: 2)

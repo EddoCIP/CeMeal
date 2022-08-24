@@ -27,6 +27,7 @@ struct IngredientlistCell: View {
                     .fontWeight(.semibold)
                     .foregroundColor(Color.darkGreen)
                     .lineLimit(1)
+                    .padding(.bottom, -5)
                 Divider()
                 if storage.isGood {
                     HStack {

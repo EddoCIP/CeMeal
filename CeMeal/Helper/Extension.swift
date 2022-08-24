@@ -29,6 +29,8 @@ extension Color {
     static let darkerGreen = Color("DarkerGreen")
     static let lightGreen = Color("LightGreen")
     static let lighterOrange = Color("LighterOrange")
+    static let lightShadowColor = Color("LightShadowColor")
+    static let lightRed = Color("LightRed")
 }
 
 extension View {

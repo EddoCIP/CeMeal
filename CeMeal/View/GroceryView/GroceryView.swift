@@ -89,7 +89,7 @@ struct GroceryView: View {
                                     }
                                     .frame(height: 80)
                                     .clipShape(RoundedCorner(radius: 17, corners: [.bottomLeft, .topLeft]))
-                                    .shadow(radius: 5)
+                                    .shadow(color: Color.lightShadowColor, radius: 1, x: 0, y: 2)
                                     .listRowInsets(EdgeInsets(top: -8, leading: 0, bottom: -8, trailing: 0))
                             }
                             .listRowBackground(Color.clear)

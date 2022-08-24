@@ -114,7 +114,7 @@ struct StorageListView: View {
                     .frame(width: 100, height: 100)
                     .tint(Color.red)
                 }
-                .shadow(color: .black, radius: 2, x: 0, y: 2)
+                .shadow(color: Color.lightShadowColor, radius: 1, x: 2, y: 2)
 //            HStack {
 //                EmptyView()
 //            }

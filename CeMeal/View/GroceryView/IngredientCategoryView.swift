@@ -14,8 +14,9 @@ struct IngredientCategoryView: View {
     var body: some View {
         VStack {
             ZStack {
-                Color.gray
+                Color(uiColor: UIColor(red: 88, green: 87, blue: 85, alpha: 100))
                     .ignoresSafeArea()
+//                    .opacity(0.22)
                 getCategoryIcon(category: title)
                     .resizable()
                 VStack(alignment: .trailing) {
@@ -31,7 +32,8 @@ struct IngredientCategoryView: View {
                             .cornerRadius(90)
                     }
                     Spacer()
-                }.padding(5)
+                }
+                .padding(5)
             }
             Text(title + (title.count > 13 ? "" : "\n"))
                 .compactFont(size: 16)
@@ -43,7 +45,7 @@ struct IngredientCategoryView: View {
         .background(Color.white)
         .cornerRadius(7)
         .frame(width: 100, height: 146)
-        .shadow(radius: 5)
+        .shadow(color: Color.lightShadowColor, radius: 1, x: 2, y: 2)
     }
 }
 
