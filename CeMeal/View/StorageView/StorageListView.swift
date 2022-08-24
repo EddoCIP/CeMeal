@@ -21,7 +21,7 @@ struct StorageListView: View {
                         HStack {
                             Image(systemName: "exclamationmark.circle.fill")
                             Text("Throw away now!")
-                                .newYorkFont(size: 20)
+                                .font(.title3)
                                 .fontWeight(.semibold)
                             Spacer()
                         }
@@ -39,7 +39,7 @@ struct StorageListView: View {
                         HStack {
                             Image(systemName: "fork.knife.circle.fill")
                             Text("Consume immeadiately!")
-                                .newYorkFont(size: 20)
+                                .font(.title3)
                                 .fontWeight(.medium)
                             Spacer()
                         }
@@ -56,7 +56,7 @@ struct StorageListView: View {
                         HStack {
                             Image(systemName: "leaf.circle.fill")
                             Text("Still fresh!")
-                                .newYorkFont(size: 20)
+                                .font(.title3)
                                 .fontWeight(.medium)
                             Spacer()
                         }
@@ -105,18 +105,20 @@ struct StorageListView: View {
                     Button(role: .destructive, action: {
                         storageVM.moveToThrashed(storage: item)
                     }, label: {
-                        VStack {
-                            Image(systemName: "trash")
-                            Text("Trashed")
-                        }
+//                        VStack {
+//                            Image(systemName: "trash")
+                        Label("Trash", systemImage: "trash")
+//                            Text("Trashed")
+//                        }
                     })
+                    .frame(width: 100, height: 100)
                     .tint(Color.red)
                 }
                 .shadow(color: .black, radius: 2, x: 0, y: 2)
-            HStack {
-                EmptyView()
-            }
-            .frame(height: 1)
+//            HStack {
+//                EmptyView()
+//            }
+//            .frame(height: 1)
         }
     }
 }

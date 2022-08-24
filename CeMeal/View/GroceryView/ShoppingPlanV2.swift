@@ -29,7 +29,7 @@ struct ShoppingPlanV2: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
                 Text("Ingredients")
-                    .newYorkFont(size: 20)
+                    .font(.title3)
                     .fontWeight(.semibold)
                     .foregroundColor(Color.semiDarkGray.opacity(0.5))
                 LazyVGrid(columns: columns, spacing: 20) {

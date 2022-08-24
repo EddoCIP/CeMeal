@@ -91,7 +91,7 @@ struct StorageView: View {
                 .shadow(radius: 10)
             HStack {
                 Text(subtitle)
-                    .newYorkFont(size: 16)
+                    .font(.callout)
                     .foregroundColor(Color.white.opacity(0.71))
                 Spacer()
             }

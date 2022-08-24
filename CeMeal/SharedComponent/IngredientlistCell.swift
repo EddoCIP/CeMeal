@@ -23,23 +23,35 @@ struct IngredientlistCell: View {
             Spacer()
             VStack (alignment: .leading) {
                 Text("\(locale == Locale.init(identifier: "id") ?   storage.storedIngredient?.nama ?? "Unknown" : storage.storedIngredient?.name ?? "Unknown")")
-                    .font(.body)
+                    .font(.custom("SF Pro Display", size: 20, relativeTo: .title3))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.darkGreen)
                     .lineLimit(1)
                 Divider()
                 if storage.isGood {
-                    Label("\(storage.age) days old", systemImage: "face.smiling")
-                        .foregroundColor(Color.green)
-                        .font(.footnote)
+                    HStack {
+                        Image(systemName: "face.smiling")
+                        Text("\(storage.age) days old")
+                            .fontWeight(.semibold)
+                    }
+                    .font(.custom("SF Compact Display", size: 13, relativeTo: .footnote))
+                    .foregroundColor(Color.darkGreen)
                 } else if storage.isSafe {
-                    Label("\(storage.age) days old", systemImage: "staroflife.circle")
-                        .foregroundColor(Color.orange)
-                        .font(.footnote)
+                    HStack {
+                        Image(systemName: "staroflife.circle")
+                        Text("\(storage.age) days old")
+                            .fontWeight(.semibold)
+                    }
+                    .font(.custom("SF Compact Display", size: 13, relativeTo: .footnote))
+                    .foregroundColor(Color.orange)
                 } else {
-                    Label("\(storage.age) days old", systemImage: "exclamationmark.circle")
-                        .foregroundColor(Color.darkRed)
-                        .font(.footnote)
+                    HStack {
+                        Image(systemName: "exclamationmark.circle")
+                        Text("\(storage.age) days old")
+                            .fontWeight(.semibold)
+                    }
+                    .font(.custom("SF Compact Display", size: 13, relativeTo: .footnote))
+                    .foregroundColor(Color.darkRed)
                 }
             }
             Spacer()

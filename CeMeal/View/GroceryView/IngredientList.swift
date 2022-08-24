@@ -31,6 +31,24 @@ struct IngredientList: View {
         NavigationView {
             ScrollView {
                 LazyVGrid(columns: columns) {
+                    Button {
+                        isSheetActive.toggle()
+                    } label: {
+                        VStack {
+                            Image(systemName: "plus")
+                                .aspectRatio(contentMode: .fit)
+                                .padding(8)
+                                .frame(width: 70, height: 70)
+                                .background(Color.gray)
+                                .cornerRadius(90)
+                            Text("Create new" + "\n")
+                                .multilineTextAlignment(.center)
+                                .lineLimit(2)
+                                .foregroundColor(Color.darkGreen)
+                                .font(.system(size: 15, weight: .semibold, design: .default))
+                        }
+                    }
+                    
                     ForEach(ingredientList) { item in
                         let isActive = self.selectedIngredients.contains(item)
                         
@@ -45,17 +63,6 @@ struct IngredientList: View {
                     }
                 }
                 .padding(.bottom, 20)
-                Button {
-                    isSheetActive.toggle()
-                } label: {
-                    Text("Custom create")
-                        .foregroundColor(Color.white)
-                        .font(.callout)
-                        .fontWeight(.bold)
-                        .frame(width: 209, height: 46)
-                        .background(Color.darkGreen)
-                        .cornerRadius(7)
-                }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {

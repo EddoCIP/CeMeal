@@ -74,10 +74,10 @@ struct GroceryView: View {
                     VStack {
                         List {
                             ForEach(groceries) { item in
-                                HStack {
-                                    EmptyView()
-                                }
-                                .frame(height: 1)
+//                                HStack {
+//                                    EmptyView()
+//                                }
+//                                .frame(height: 1)
                                 GroceryItem(grocery: item, doneGroceries: $doneGroceries, isSettingActive: $isSettingActive, groceryVM: groceryVM)
                                     .swipeActions {
                                         Button(role: .destructive, action: {

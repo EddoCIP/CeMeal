@@ -24,7 +24,7 @@ struct MainMenuCard: View {
             .frame(width: 80, height: 80, alignment: .center)
             .background(Color.white)
             Text("\(storage.isDanger ? notSafeRemark : safeRemark)")
-                .newYorkFont(size: 14)
+                .font(.footnote)
                 .foregroundColor(storage.isDanger ? Color.darkRed : Color.orange)
                 .multilineTextAlignment(.leading)
                 .frame(width: 98)

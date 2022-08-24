@@ -48,7 +48,7 @@ struct TrashedIngredientSummary: View {
                 if !countPerIngredient.isEmpty {
                     HStack {
                         Text("Never buy \(countPerIngredient[0].key.lowercased()) again, you always dump them..")
-                            .newYorkFont(size: 12)
+                            .font(.footnote)
                             .multilineTextAlignment(.leading)
                             .fixedSize(horizontal: false, vertical: true)
                     }

@@ -47,7 +47,7 @@ struct ConsumedIngredientSummary: View {
                 if !countPerIngredient.isEmpty {
                     HStack {
                         Text("You seem to like \(countPerIngredient[0].key.lowercased()), stick to it!")
-                            .newYorkFont(size: 12)
+                            .font(.footnote)
                             .multilineTextAlignment(.leading)
                             .fixedSize(horizontal: false, vertical: true)
                         Spacer()
