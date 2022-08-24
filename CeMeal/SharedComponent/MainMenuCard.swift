@@ -18,16 +18,9 @@ struct MainMenuCard: View {
     var body: some View {
         VStack(alignment: .center) {
             Text("\(locale == Locale.init(identifier: "id") ?   storage.storedIngredient?.nama ?? "Unknown" : storage.storedIngredient?.name ?? "Unknown")")
+                .lineLimit(1)
             
-            AsyncImage(url: URL(string: storage.storedIngredient?.imageUrl ?? "")) { phase in
-                if let image = phase.image {
-                    image.resizable()
-                } else if phase.error != nil {
-                    Color.white
-                } else {
-                    ProgressView()
-                }
-            }
+            AsyncImageView(imageUrl: storage.storedIngredient?.imageUrl ?? "")
             .frame(width: 80, height: 80, alignment: .center)
             .background(Color.white)
             Text("\(storage.isDanger ? notSafeRemark : safeRemark)")

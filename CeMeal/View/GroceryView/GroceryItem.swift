@@ -15,7 +15,7 @@ struct GroceryItem: View {
     @Binding var isSettingActive: Bool
     @State var showStepper: Bool = false
     
-    @ObservedObject var groceryVM : GroceryViewModel = .init()
+    @ObservedObject var groceryVM : GroceryViewModel
     
     var body: some View {
         ZStack {
@@ -33,15 +33,7 @@ struct GroceryItem: View {
                 HStack {
                     HStack {
                         Spacer()
-                        AsyncImage(url: URL(string: grocery.groceryToIngredient?.imageUrl ?? "")) { phase in
-                            if let image = phase.image {
-                                image.resizable()
-                            } else if phase.error != nil {
-                                Color.white
-                            } else {
-                                ProgressView()
-                            }
-                        }
+                        AsyncImageView(imageUrl: grocery.groceryToIngredient?.imageUrl ?? "")
                         .frame(width: 52, height: 52)
                     }
                     .frame(width: 96, height: 60)
@@ -118,6 +110,7 @@ struct GroceryItem_Previews: PreviewProvider {
     static var previews: some View {
         GroceryItem(grocery: Grocery(context: PersistenceController.preview.container.viewContext),
                     doneGroceries: .constant([]),
-                    isSettingActive: .constant(true))
+                    isSettingActive: .constant(true),
+                    groceryVM: .init())
     }
 }

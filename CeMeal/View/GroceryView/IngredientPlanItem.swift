@@ -16,15 +16,7 @@ struct IngredientPlanItem: View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: ingredient.imageUrl ?? "")) { phase in
-                if let image = phase.image {
-                    image.resizable()
-                } else if phase.error != nil {
-                    Color.white
-                } else {
-                    ProgressView()
-                }
-            }
+            AsyncImageView(imageUrl: ingredient.imageUrl ?? "")
             .aspectRatio(contentMode: .fit)
             .padding(8)
             .frame(width: 70, height: 70)
@@ -35,7 +27,7 @@ struct IngredientPlanItem: View {
             )
             .cornerRadius(90)
             Spacer()
-            Text("\(locale == Locale.init(identifier: "id") ?   ingredient.nama ?? ingredient.name ?? "Unknown" : ingredient.name ?? "Unknown")\n")
+            Text("\(locale == Locale.init(identifier: "id") ?   ingredient.nama ?? ingredient.name ?? "Unknown" : ingredient.name ?? "Unknown")" + "\n")
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
                 .foregroundColor(Color.darkGreen)

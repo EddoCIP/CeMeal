@@ -75,7 +75,7 @@ struct StorageView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .padding(.horizontal)
                 .sheet(isPresented: $isShowSheet) {
-                    StorageListView()
+                    StorageListView(storageVM: storageVM)
                 }
             }
         }

@@ -15,15 +15,7 @@ struct IngredientlistCell: View {
         
         HStack {
             HStack {
-                AsyncImage(url: URL(string: storage.storedIngredient?.imageUrl ?? "")) { phase in
-                    if let image = phase.image {
-                        image.resizable()
-                    } else if phase.error != nil {
-                        Color.white
-                    } else {
-                        ProgressView()
-                    }
-                }
+                AsyncImageView(imageUrl: storage.storedIngredient?.imageUrl ?? "")
                 .frame(width: 58, height: 58)
             }
             .background(Color.white)

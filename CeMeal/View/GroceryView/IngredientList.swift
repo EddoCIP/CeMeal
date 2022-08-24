@@ -10,9 +10,11 @@ import SwiftUI
 struct IngredientList: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var groceryVM: GroceryViewModel = .init()
+    @ObservedObject var ingredientVM: IngredientViewModel
+    @ObservedObject var groceryVM: GroceryViewModel
     
     @State var searchKeyword : String = ""
+    @State var isSheetActive: Bool = false
     
     @Binding var selectedIngredients : [Ingredient]
     var ingredientList: [Ingredient] = []
@@ -42,7 +44,18 @@ struct IngredientList: View {
                         }
                     }
                 }
-//                .searchable(text: $searchKeyword, placement: .navigationBarDrawer(displayMode: .always), prompt: "What ingredients do you need?")
+                .padding(.bottom, 20)
+                Button {
+                    isSheetActive.toggle()
+                } label: {
+                    Text("Custom create")
+                        .foregroundColor(Color.white)
+                        .font(.callout)
+                        .fontWeight(.bold)
+                        .frame(width: 209, height: 46)
+                        .background(Color.darkGreen)
+                        .cornerRadius(7)
+                }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
@@ -65,6 +78,9 @@ struct IngredientList: View {
                         }
                     }
                 }
+                .sheet(isPresented: $isSheetActive) {
+                    InputIngredient(categoryTitle: categoryName, ingredientVM: ingredientVM)
+                }
             }
             .padding(.horizontal)
             .background(Color.lightGray)
@@ -72,21 +88,11 @@ struct IngredientList: View {
             .navigationBarTitleDisplayMode(.inline)
         }
     }
-    
-//    var searchResult: [Ingredient] {
-//        if searchKeyword.isEmpty {
-//            return ingredientList
-//        } else {
-//            return ingredientList.filter { item in
-//                return String(item.name ?? "").contains(searchKeyword)
-//            }
-//        }
-//    }
 }
 
 struct IngredientList_Previews: PreviewProvider {
     static var previews: some View {
         let ingredient = Ingredient(context: PersistenceController.preview.container.viewContext)
-        IngredientList(selectedIngredients: .constant([]), ingredientList: [ingredient], categoryName: .constant("Apa hayoo"))
+        IngredientList(ingredientVM: .init(), groceryVM: .init(), selectedIngredients: .constant([]), ingredientList: [ingredient], categoryName: .constant("Apa hayoo"))
     }
 }

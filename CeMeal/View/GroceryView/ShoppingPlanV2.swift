@@ -10,8 +10,8 @@ import SwiftUI
 struct ShoppingPlanV2: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var ingredientVM : IngredientViewModel = .init()
-    @ObservedObject var groceryVM : GroceryViewModel = .init()
+    @ObservedObject var ingredientVM : IngredientViewModel
+    @ObservedObject var groceryVM : GroceryViewModel
     
     @State var selectedIngredients: [Ingredient] = []
     @State var groupItem : [Ingredient] = []
@@ -46,12 +46,12 @@ struct ShoppingPlanV2: View {
             }
         }
         .onAppear {
-            ingredientVM.loadIngredient()
+//            ingredientVM.loadIngredient()
         }
         .searchable(text: $ingredientVM.searchQuery, placement: .navigationBarDrawer(displayMode: .always), prompt: "What ingredients do you need?")
         .padding(.horizontal)
         .sheet(isPresented: $isSheetActive) {
-            IngredientList(selectedIngredients: $selectedIngredients, ingredientList: $groupItem.wrappedValue, categoryName: $groupCategory)
+            IngredientList(ingredientVM: ingredientVM, groceryVM: groceryVM,  selectedIngredients: $selectedIngredients, ingredientList: $groupItem.wrappedValue, categoryName: $groupCategory)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -75,6 +75,6 @@ struct ShoppingPlanV2: View {
 
 struct ShoppingPlanV2_Previews: PreviewProvider {
     static var previews: some View {
-        ShoppingPlanV2()
+        ShoppingPlanV2(ingredientVM: .init(), groceryVM: .init())
     }
 }

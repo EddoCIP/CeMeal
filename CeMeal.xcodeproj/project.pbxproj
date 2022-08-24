@@ -14,6 +14,10 @@
 		2E5E643C28B3BDCF003759EC /* StepperGrocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */; };
 		FD64181028B5383E003972F7 /* ConsumedIngredientSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD64180F28B5383D003972F7 /* ConsumedIngredientSummary.swift */; };
 		FD64181228B53867003972F7 /* TrashedIngredientSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD64181128B53867003972F7 /* TrashedIngredientSummary.swift */; };
+		FD84BF7728B63B8000AAACC4 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD84BF7628B63B8000AAACC4 /* ImagePicker.swift */; };
+		FD84BF7928B63BC200AAACC4 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD84BF7828B63BC200AAACC4 /* Helper.swift */; };
+		FD84BF7B28B63C0200AAACC4 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD84BF7A28B63C0200AAACC4 /* CameraView.swift */; };
+		FD84BF7D28B642C300AAACC4 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD84BF7C28B642C300AAACC4 /* AsyncImageView.swift */; };
 		FDAA35F428B35768006FD911 /* StorageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDAA35F328B35768006FD911 /* StorageListView.swift */; };
 		FDAA35F728B3600C006FD911 /* NewYork.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDAA35F528B3600C006FD911 /* NewYork.ttf */; };
 		FDAA35F828B3600C006FD911 /* NewYorkItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDAA35F628B3600C006FD911 /* NewYorkItalic.ttf */; };
@@ -31,7 +35,6 @@
 		FDF5320028AE4147006CC337 /* GroceryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF531FF28AE4147006CC337 /* GroceryView.swift */; };
 		FDF5320228AE44BA006CC337 /* GroceryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5320128AE44BA006CC337 /* GroceryViewModel.swift */; };
 		FDF5320428AE44E8006CC337 /* DataInitialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5320328AE44E8006CC337 /* DataInitialization.swift */; };
-		FDF5320828AE4991006CC337 /* GroceryShoppingPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5320728AE4991006CC337 /* GroceryShoppingPlan.swift */; };
 		FDF5320A28AE4F55006CC337 /* IngredientViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5320928AE4F55006CC337 /* IngredientViewModel.swift */; };
 		FDF5320C28AE4FA0006CC337 /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5320B28AE4FA0006CC337 /* GroceryItem.swift */; };
 		FDF5320E28AE509D006CC337 /* RoundedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF5320D28AE509D006CC337 /* RoundedImage.swift */; };
@@ -57,6 +60,10 @@
 		2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperGrocery.swift; sourceTree = "<group>"; };
 		FD64180F28B5383D003972F7 /* ConsumedIngredientSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumedIngredientSummary.swift; sourceTree = "<group>"; };
 		FD64181128B53867003972F7 /* TrashedIngredientSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashedIngredientSummary.swift; sourceTree = "<group>"; };
+		FD84BF7628B63B8000AAACC4 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		FD84BF7828B63BC200AAACC4 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		FD84BF7A28B63C0200AAACC4 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		FD84BF7C28B642C300AAACC4 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		FDAA35F328B35768006FD911 /* StorageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageListView.swift; sourceTree = "<group>"; };
 		FDAA35F528B3600C006FD911 /* NewYork.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYork.ttf; sourceTree = "<group>"; };
 		FDAA35F628B3600C006FD911 /* NewYorkItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NewYorkItalic.ttf; sourceTree = "<group>"; };
@@ -75,7 +82,6 @@
 		FDF531FF28AE4147006CC337 /* GroceryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryView.swift; sourceTree = "<group>"; };
 		FDF5320128AE44BA006CC337 /* GroceryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryViewModel.swift; sourceTree = "<group>"; };
 		FDF5320328AE44E8006CC337 /* DataInitialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataInitialization.swift; sourceTree = "<group>"; };
-		FDF5320728AE4991006CC337 /* GroceryShoppingPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryShoppingPlan.swift; sourceTree = "<group>"; };
 		FDF5320928AE4F55006CC337 /* IngredientViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientViewModel.swift; sourceTree = "<group>"; };
 		FDF5320B28AE4FA0006CC337 /* GroceryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
 		FDF5320D28AE509D006CC337 /* RoundedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImage.swift; sourceTree = "<group>"; };
@@ -188,6 +194,9 @@
 				FDAA35F928B4B70F006FD911 /* SwipeContainerCell.swift */,
 				2E30BB4628B5266A00ADF735 /* MainMenuCard.swift */,
 				2E39D32D28B628EE009D2076 /* InputIngredient.swift */,
+				FD84BF7628B63B8000AAACC4 /* ImagePicker.swift */,
+				FD84BF7A28B63C0200AAACC4 /* CameraView.swift */,
+				FD84BF7C28B642C300AAACC4 /* AsyncImageView.swift */,
 			);
 			path = SharedComponent;
 			sourceTree = "<group>";
@@ -199,6 +208,7 @@
 				FDF5321528AF6411006CC337 /* ingredients.csv */,
 				FDF5320F28AE542F006CC337 /* Extension.swift */,
 				FDF5321328AE8E16006CC337 /* Enums.swift */,
+				FD84BF7828B63BC200AAACC4 /* Helper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -207,7 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				FDF531FF28AE4147006CC337 /* GroceryView.swift */,
-				FDF5320728AE4991006CC337 /* GroceryShoppingPlan.swift */,
 				FDF5320B28AE4FA0006CC337 /* GroceryItem.swift */,
 				FDF5321128AE5566006CC337 /* IngredientPlanItem.swift */,
 				FDF5321B28AFC8FD006CC337 /* ShoppingPlanV2.swift */,
@@ -324,6 +333,8 @@
 				FDF5321028AE542F006CC337 /* Extension.swift in Sources */,
 				FDF531FE28AE413E006CC337 /* HistoryView.swift in Sources */,
 				FDF531FC28AE412E006CC337 /* StorageView.swift in Sources */,
+				FD84BF7B28B63C0200AAACC4 /* CameraView.swift in Sources */,
+				FD84BF7728B63B8000AAACC4 /* ImagePicker.swift in Sources */,
 				FDF5320C28AE4FA0006CC337 /* GroceryItem.swift in Sources */,
 				FDF5322A28B33989006CC337 /* StorageViewModel.swift in Sources */,
 				2E5E643C28B3BDCF003759EC /* StepperGrocery.swift in Sources */,
@@ -335,7 +346,6 @@
 				FDF5320028AE4147006CC337 /* GroceryView.swift in Sources */,
 				2E30BB4728B5266A00ADF735 /* MainMenuCard.swift in Sources */,
 				FDF5321228AE5566006CC337 /* IngredientPlanItem.swift in Sources */,
-				FDF5320828AE4991006CC337 /* GroceryShoppingPlan.swift in Sources */,
 				FD64181028B5383E003972F7 /* ConsumedIngredientSummary.swift in Sources */,
 				FDAA35FF28B4CFC6006FD911 /* StorageIngredientItem.swift in Sources */,
 				FDF531E628AE3CBA006CC337 /* Persistence.swift in Sources */,
@@ -343,12 +353,14 @@
 				FDF5322E28B355D8006CC337 /* Storage+CoreDataProperties.swift in Sources */,
 				FDF531DF28AE3CB9006CC337 /* ContentView.swift in Sources */,
 				FDF5321828AF6FB8006CC337 /* RoundedCorner.swift in Sources */,
+				FD84BF7928B63BC200AAACC4 /* Helper.swift in Sources */,
 				FD64181228B53867003972F7 /* TrashedIngredientSummary.swift in Sources */,
 				FDF5320E28AE509D006CC337 /* RoundedImage.swift in Sources */,
 				FDF5320428AE44E8006CC337 /* DataInitialization.swift in Sources */,
 				FDAA35F428B35768006FD911 /* StorageListView.swift in Sources */,
 				FDF5322628B28A6D006CC337 /* IngredientList.swift in Sources */,
 				FDF5320A28AE4F55006CC337 /* IngredientViewModel.swift in Sources */,
+				FD84BF7D28B642C300AAACC4 /* AsyncImageView.swift in Sources */,
 				2E5E643828B38F23003759EC /* IngredientlistCell.swift in Sources */,
 				FDF531E928AE3CBA006CC337 /* CeMeal.xcdatamodeld in Sources */,
 				FDF531DD28AE3CB9006CC337 /* CeMealApp.swift in Sources */,
@@ -487,6 +499,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CeMeal/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Enable access camera so you can start taking photos";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Enable access album so you can start taking photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -519,6 +533,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CeMeal/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Enable access camera so you can start taking photos";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Enable access album so you can start taking photos";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

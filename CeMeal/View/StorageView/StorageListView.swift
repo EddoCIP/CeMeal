@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StorageListView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var storageVM: StorageViewModel = .init()
+    @ObservedObject var storageVM: StorageViewModel
     
     var body: some View {
         NavigationView {
@@ -63,7 +63,7 @@ struct StorageListView: View {
                     }
                     .headerProminence(.increased)
                     .listRowBackground(Color.clear)
-                    .listRowInsets(.init(top: 7, leading: 2, bottom: 2, trailing: 2))
+                    .listRowInsets(.init(top: 2, leading: 2, bottom: 2, trailing: 2))
                 }
             }
             .listStyle(.plain)
@@ -123,6 +123,6 @@ struct StorageListView: View {
 
 struct StorageListView_Previews: PreviewProvider {
     static var previews: some View {
-        StorageListView()
+        StorageListView(storageVM: .init())
     }
 }

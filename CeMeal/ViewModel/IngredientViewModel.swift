@@ -13,6 +13,8 @@ class IngredientViewModel: ObservableObject {
     @Published var searchResult : [Ingredient] = []
     @Published var searchQuery : String = ""
     
+    @Published var inputName: String = ""
+    
     init() {
         loadIngredient()
         //        searchIngredient()
@@ -48,6 +50,20 @@ class IngredientViewModel: ObservableObject {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func createNewIngredient(category: String, inputName: String, imageUrl: String) {
+        let moc = PersistenceController.shared.container.viewContext
+        
+        let ingredient = Ingredient(context: moc)
+        
+        ingredient.id = UUID()
+        ingredient.name = inputName
+        ingredient.category = category
+        ingredient.imageUrl = imageUrl
+        
+        try? moc.save()
+        loadIngredient()
     }
     
     var ingredientSearchResult : [Ingredient] {

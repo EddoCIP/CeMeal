@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct GroceryView: View {
-    @State var isShowSheet: Bool = false
-    
-    @ObservedObject var groceryVM: GroceryViewModel = .init()
+    @StateObject var groceryVM: GroceryViewModel = .init()
+    @StateObject var ingredientVM: IngredientViewModel = .init()
     @FetchRequest(sortDescriptors: []) var groceries : FetchedResults <Grocery>
     
     @State var isNavActive: Bool = false
@@ -35,7 +34,6 @@ struct GroceryView: View {
                     Spacer()
                     Text(Image(systemName: "plus.square"))
                         .font(.system(size: 36))
-//                        .font(.custom("SF Compact Display", size: 36))
                         .fontWeight(.thin)
                         .foregroundColor(Color.darkGreen)
                         .onTapGesture {
@@ -80,7 +78,7 @@ struct GroceryView: View {
                                     EmptyView()
                                 }
                                 .frame(height: 1)
-                                GroceryItem(grocery: item, doneGroceries: $doneGroceries, isSettingActive: $isSettingActive)
+                                GroceryItem(grocery: item, doneGroceries: $doneGroceries, isSettingActive: $isSettingActive, groceryVM: groceryVM)
                                     .swipeActions {
                                         Button(role: .destructive, action: {
                                             groceryVM.removeIngredientFromGrocery(grocery: item)
@@ -117,7 +115,7 @@ struct GroceryView: View {
                     .background(Color.clear)
                 }
                 NavigationLink(isActive: $isNavActive) {
-                    ShoppingPlanV2()
+                    ShoppingPlanV2(ingredientVM: ingredientVM, groceryVM: groceryVM)
                 } label: {
                     Text("")
                 }
@@ -125,9 +123,6 @@ struct GroceryView: View {
             }
             
             .navigationBarTitleDisplayMode(.inline)
-            .sheet(isPresented: $isShowSheet) {
-                GroceryShoppingPlan()
-            }
             .background(Color.lightGray)
         }
     }
