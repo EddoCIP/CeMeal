@@ -31,10 +31,17 @@ class NotificationManager {
         content.badge = 1
         
         //time
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5.0, repeats: false)
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5.0, repeats: false)
         
         
         //Calender
+        var dateComponents = DateComponents()
+        dateComponents.hour = 01
+        dateComponents.minute = 10
+        dateComponents.weekday = 2
+//        dateComponents.month
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        
         //location
         
         let request = UNNotificationRequest(
@@ -55,6 +62,9 @@ struct LocalNotification: View {
             Button ("Schedule Notif") {
                 NotificationManager.instance.scheduleNotification()
             }
+        }
+        .onAppear {
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
     }
 }
