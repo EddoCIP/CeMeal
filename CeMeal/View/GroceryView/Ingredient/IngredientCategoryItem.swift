@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IngredientCategoryView: View {
+struct IngredientCategoryItem: View {
     var title: String
     var count: Int
     
@@ -48,8 +48,8 @@ struct IngredientCategoryView: View {
     }
 }
 
-struct IngredientCategoryView_Previews: PreviewProvider {
+struct IngredientCategoryItem_Previews: PreviewProvider {
     static var previews: some View {
-        IngredientCategoryView(title: "Animal Products", count: 10)
+        IngredientCategoryItem(title: "Animal Products", count: 10)
     }
 }

@@ -7,31 +7,34 @@
 
 import Foundation
 import CoreData
+import Combine
 
 class GroceryViewModel: ObservableObject {
-    @Published var groceryList: [Grocery] = []
+    @Published var groceries: [Grocery] = []
+    
+    @Published var isNavActive: Bool = false
+    @Published var isSettingActive: Bool = false
+    @Published var doneGroceries: [Grocery] = []
+    
+    private var cancellable: AnyCancellable?
     
     init() {
         loadGrocery()
+        cancellable = NotificationCenter.default.publisher(for: NSManagedObjectContext.didSaveObjectsNotification, object: nil)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveValue: { _ in
+                self.loadGrocery()
+            })
     }
     
     func loadGrocery() {
-        let moc = PersistenceController.shared.container.viewContext
-        
-        let request = NSFetchRequest<Grocery>(entityName: "Grocery")
-        request.sortDescriptors = []
-        
-        do {
-            try groceryList = moc.fetch(request)
-        } catch {
-            print(error.localizedDescription)
-        }
+        groceries = Grocery.getGroceries()
     }
     
-    func saveGroceriesToStorage(groceries: [Grocery]) {
+    func saveGroceriesToStorage() {
         let moc = PersistenceController.shared.container.viewContext
         
-        for item in groceries {
+        for item in doneGroceries {
             let storage = Storage(context: moc)
             
             storage.id = UUID()
@@ -42,7 +45,7 @@ class GroceryViewModel: ObservableObject {
             moc.delete(item)
         }
         
-        save()
+        PersistenceController.shared.saveContext()
     }
     
     func removeIngredientFromGrocery(grocery: Grocery) {
@@ -50,40 +53,18 @@ class GroceryViewModel: ObservableObject {
         
         moc.delete(grocery)
         
-        save()
-    }
-    
-    func saveIngredientsToGrocery(ingredients: [Ingredient]) {
-        for item in ingredients {
-            let grocery = Grocery(context: PersistenceController.shared.container.viewContext)
-            
-            grocery.id = UUID()
-            grocery.groceryToIngredient = item
-            grocery.quantity = 1
-            grocery.isDone = false
-        }
-        
-        save()
-    }
-    
-    func save() {
-        do {
-            try PersistenceController.shared.container.viewContext.save()
-        }
-        catch {
-            print(error.localizedDescription)
-        }
+        PersistenceController.shared.saveContext()
     }
     
     func increaseQuantity(grocery: Grocery) {
         grocery.quantity += 1
         
-        save()
+        PersistenceController.shared.saveContext()
     }
     
     func decreaseQuantity(grocery: Grocery) {
         grocery.quantity -= 1
         
-        save()
+        PersistenceController.shared.saveContext()
     }
 }

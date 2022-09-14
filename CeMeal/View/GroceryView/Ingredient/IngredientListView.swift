@@ -7,18 +7,15 @@
 
 import SwiftUI
 
-struct IngredientList: View {
+struct IngredientListView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var ingredientVM: IngredientViewModel
-    @ObservedObject var groceryVM: GroceryViewModel
-    
-    @State var searchKeyword : String = ""
-    @State var isSheetActive: Bool = false
+    @EnvironmentObject var ingredientListVM: IngredientListViewModel
     
     @Binding var selectedIngredients : [Ingredient]
+    
     var ingredientList: [Ingredient] = []
-    @Binding var categoryName: String
+    var categoryName: String = ""
     
     let columns = [
         GridItem(.flexible()),
@@ -32,13 +29,11 @@ struct IngredientList: View {
             ScrollView {
                 LazyVGrid(columns: columns) {
                     Button {
-                        isSheetActive.toggle()
+                        ingredientListVM.isSheetActive.toggle()
                     } label: {
                         VStack {
                             Image(systemName: "plus")
                                 .font(.title2)
-//                                .aspectRatio(contentMode: .fit)
-//                                .padding(8)
                                 .frame(width: 70, height: 70)
                                 .background(Color(uiColor: UIColor(red: 211, green: 211, blue: 211, alpha: 100)))
                                 .cornerRadius(90)
@@ -69,7 +64,7 @@ struct IngredientList: View {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
                             if !selectedIngredients.isEmpty {
-                                groceryVM.saveIngredientsToGrocery(ingredients: selectedIngredients)
+                                ingredientListVM.saveIngredientsToGrocery(ingredients: selectedIngredients)
                                 self.presentationMode.wrappedValue.dismiss()
                                 selectedIngredients = []
                             }
@@ -87,8 +82,8 @@ struct IngredientList: View {
                         }
                     }
                 }
-                .sheet(isPresented: $isSheetActive) {
-                    InputIngredient(categoryTitle: categoryName, ingredientVM: ingredientVM)
+                .sheet(isPresented: $ingredientListVM.isSheetActive) {
+                    InputIngredientView(categoryTitle: categoryName)
                 }
             }
             .padding(.horizontal)
@@ -101,7 +96,7 @@ struct IngredientList: View {
 
 struct IngredientList_Previews: PreviewProvider {
     static var previews: some View {
-        let ingredient = Ingredient(context: PersistenceController.preview.container.viewContext)
-        IngredientList(ingredientVM: .init(), groceryVM: .init(), selectedIngredients: .constant([]), ingredientList: [ingredient], categoryName: .constant("Apa hayoo"))
+        IngredientListView(selectedIngredients: .constant([]), categoryName: "Apa hayoo")
+            .environmentObject(IngredientListViewModel())
     }
 }

@@ -8,13 +8,7 @@
 import SwiftUI
 
 struct GroceryView: View {
-    @StateObject var groceryVM: GroceryViewModel = .init()
-    @StateObject var ingredientVM: IngredientViewModel = .init()
-    @FetchRequest(sortDescriptors: []) var groceries : FetchedResults <Grocery>
-    
-    @State var isNavActive: Bool = false
-    @State var isSettingActive: Bool = false
-    @State var doneGroceries: [Grocery] = []
+    @EnvironmentObject var groceryVM: GroceryViewModel
     
     init() {
         UITableView.appearance().separatorColor = .clear
@@ -37,18 +31,18 @@ struct GroceryView: View {
                         .fontWeight(.thin)
                         .foregroundColor(Color.darkGreen)
                         .onTapGesture {
-                            isNavActive.toggle()
+                            self.groceryVM.isNavActive.toggle()
                         }
                 }
                 .padding(.horizontal)
                 Divider()
                     .shadow(radius: 10)
                 HStack {
-                    Text("\(groceries.count) items")
+                    Text("\(self.groceryVM.groceries.count) items")
                         .foregroundColor(Color.darkerGreen)
                     Spacer()
                     Button {
-                        isSettingActive.toggle()
+                        self.groceryVM.isSettingActive.toggle()
                     } label: {
                         Text("Settings")
                             .foregroundColor(Color.lightGreen)
@@ -56,11 +50,11 @@ struct GroceryView: View {
                 }
                 .font(.caption)
                 .padding(.horizontal)
-                .if(groceries.isEmpty) { view in
+                .if(self.groceryVM.groceries.isEmpty) { view in
                     view.hidden()
                 }
                 
-                if groceries.isEmpty {
+                if self.groceryVM.groceries.isEmpty {
                     VStack(spacing: 30) {
                         Spacer()
                         Image("shoppingCart")
@@ -73,12 +67,8 @@ struct GroceryView: View {
                 } else {
                     VStack {
                         List {
-                            ForEach(groceries) { item in
-//                                HStack {
-//                                    EmptyView()
-//                                }
-//                                .frame(height: 1)
-                                GroceryItem(grocery: item, doneGroceries: $doneGroceries, isSettingActive: $isSettingActive, groceryVM: groceryVM)
+                            ForEach(self.groceryVM.groceries) { item in
+                                GroceryItemView(grocery: item, doneGroceries: $groceryVM.doneGroceries, isSettingActive: $groceryVM.isSettingActive, groceryVM: groceryVM)
                                     .swipeActions {
                                         Button(role: .destructive, action: {
                                             groceryVM.removeIngredientFromGrocery(grocery: item)
@@ -100,22 +90,22 @@ struct GroceryView: View {
                         .background(Color.clear)
                         .listStyle(.plain)
                         Button {
-                            groceryVM.saveGroceriesToStorage(groceries: doneGroceries)
-                            doneGroceries = []
+                            groceryVM.saveGroceriesToStorage()
+                            groceryVM.doneGroceries = []
                         } label: {
                             Text("Add to storage")
                                 .frame(width: 209, height: 46)
                         }
                         .padding()
                         .buttonStyle(.borderedProminent)
-                        .if(!isSettingActive) { button in
+                        .if(!groceryVM.isSettingActive) { button in
                             button.hidden()
                         }
                     }
                     .background(Color.clear)
                 }
-                NavigationLink(isActive: $isNavActive) {
-                    ShoppingPlanV2(ingredientVM: ingredientVM, groceryVM: groceryVM)
+                NavigationLink(isActive: $groceryVM.isNavActive) {
+                    IngredientCategoryView()
                 } label: {
                     Text("")
                 }
@@ -127,10 +117,10 @@ struct GroceryView: View {
         }
     }
 }
-//
-//struct GroceryView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GroceryView()
-//            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//    }
-//}
+
+struct GroceryView_Previews: PreviewProvider {
+    static var previews: some View {
+        GroceryView()
+            .environmentObject(GroceryViewModel())
+    }
+}

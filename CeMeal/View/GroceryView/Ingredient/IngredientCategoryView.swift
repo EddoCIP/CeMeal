@@ -1,5 +1,5 @@
 //
-//  ShoppingPlanV2.swift
+//  IngredientCategoryView.swift
 //  CeMeal
 //
 //  Created by Eddo Careera Iriyanto Putra on 19/08/22.
@@ -7,17 +7,10 @@
 
 import SwiftUI
 
-struct ShoppingPlanV2: View {
+struct IngredientCategoryView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @ObservedObject var ingredientVM : IngredientViewModel
-    @ObservedObject var groceryVM : GroceryViewModel
-    
-    @State var selectedIngredients: [Ingredient] = []
-    @State var groupItem : [Ingredient] = []
-    @State var isSheetActive : Bool = false
-    @State var groupCategory: String = ""
-    @State var searchKeyword: String = ""
+    @EnvironmentObject var ingredientCategoryVM: IngredientCategoryViewModel
     
     let columns = [
         GridItem(.flexible()),
@@ -34,24 +27,21 @@ struct ShoppingPlanV2: View {
                     .foregroundColor(Color.semiDarkGray.opacity(0.5))
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(IngredientCategoryEnum.allCases, id: \.self) { category in
-                        let items = ingredientVM.groupedIngredientByCategory[category.rawValue] ?? []
-                        IngredientCategoryView(title: category.rawValue, count: items.count)
+                        let items = self.ingredientCategoryVM.groupedIngredientByCategory[category.rawValue] ?? []
+                        IngredientCategoryItem(title: category.rawValue, count: items.count)
                             .onTapGesture {
-                                self.groupItem = items
-                                self.groupCategory = category.rawValue
-                                isSheetActive.toggle()
+                                self.ingredientCategoryVM.groupItem = items
+                                self.ingredientCategoryVM.groupCategory = category.rawValue
+                                ingredientCategoryVM.isSheetActive.toggle()
                             }
                     }
                 }
             }
         }
-        .onAppear {
-//            ingredientVM.loadIngredient()
-        }
-        .searchable(text: $ingredientVM.searchQuery, placement: .navigationBarDrawer(displayMode: .always), prompt: "What ingredients do you need?")
+        .searchable(text: $ingredientCategoryVM.searchQuery, placement: .navigationBarDrawer(displayMode: .always), prompt: "What ingredients do you need?")
         .padding(.horizontal)
-        .sheet(isPresented: $isSheetActive) {
-            IngredientList(ingredientVM: ingredientVM, groceryVM: groceryVM,  selectedIngredients: $selectedIngredients, ingredientList: $groupItem.wrappedValue, categoryName: $groupCategory)
+        .sheet(isPresented: $ingredientCategoryVM.isSheetActive) {
+            IngredientListView(selectedIngredients: $ingredientCategoryVM.selectedIngredient, ingredientList: ingredientCategoryVM.groupItem, categoryName: ingredientCategoryVM.groupCategory)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -73,8 +63,9 @@ struct ShoppingPlanV2: View {
     }
 }
 
-struct ShoppingPlanV2_Previews: PreviewProvider {
+struct IngredientCategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        ShoppingPlanV2(ingredientVM: .init(), groceryVM: .init())
+        IngredientCategoryView()
+            .environmentObject(IngredientCategoryViewModel())
     }
 }

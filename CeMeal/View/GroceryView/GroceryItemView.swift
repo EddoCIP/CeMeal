@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GroceryItem: View {
+struct GroceryItemView: View {
     @Environment(\.locale) var locale
     
     var grocery: Grocery
@@ -68,7 +68,6 @@ struct GroceryItem: View {
                             }
                         }
                     }
-                    //                    Spacer()
                 }
             }
             HStack {
@@ -108,7 +107,7 @@ struct GroceryItem: View {
 
 struct GroceryItem_Previews: PreviewProvider {
     static var previews: some View {
-        GroceryItem(grocery: Grocery(context: PersistenceController.preview.container.viewContext),
+        GroceryItemView(grocery: Grocery(context: PersistenceController.preview.container.viewContext),
                     doneGroceries: .constant([]),
                     isSettingActive: .constant(true),
                     groceryVM: .init())

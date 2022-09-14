@@ -7,21 +7,19 @@
 
 import SwiftUI
 
-struct InputIngredient: View {
+struct InputIngredientView: View {
     var categoryTitle: String = ""
-    @ObservedObject var ingredientVM: IngredientViewModel
+    
+    @EnvironmentObject var inputIngredientVM: InputIngredientViewModel
     
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.dismiss) var dismiss
-    
-    @State var inputName: String = ""
-    @State var imageUrl: String = ""
     
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    CameraView(url: $imageUrl)
+                    CameraView(url: $inputIngredientVM.imageUrl)
                         .foregroundColor(Color.black)
                         .background(Color.white)
                         .cornerRadius(90)
@@ -41,7 +39,7 @@ struct InputIngredient: View {
                         .font(.system(.subheadline, design: .rounded))
                         .fontWeight(.semibold)
                     Spacer()
-                    TextField("Ingredient's Name", text: $inputName)
+                    TextField("Ingredient's Name", text: $inputIngredientVM.inputName)
                 }
                 .padding()
                 .frame(width: 347, height: 40)
@@ -65,11 +63,10 @@ struct InputIngredient: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        ingredientVM.createNewIngredient(category: categoryTitle, inputName: inputName, imageUrl: imageUrl)
+                        inputIngredientVM.saveIngredient(category: categoryTitle, inputName: inputIngredientVM.inputName, imageUrl: inputIngredientVM.imageUrl)
                         dismiss()
                     } label: {
                         Text("Save")
-//                            .foregroundColor(Color.darkGreen)
                     }
                 }
             }
@@ -80,6 +77,7 @@ struct InputIngredient: View {
 
 struct InputIngredient_Previews: PreviewProvider {
     static var previews: some View {
-        InputIngredient(categoryTitle: "Animal Product", ingredientVM: .init())
+        InputIngredientView(categoryTitle: "Animal Product")
+            .environmentObject(InputIngredientViewModel())
     }
 }
