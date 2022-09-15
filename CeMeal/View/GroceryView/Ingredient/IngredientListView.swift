@@ -14,7 +14,6 @@ struct IngredientListView: View {
     
     @Binding var selectedIngredients : [Ingredient]
     
-    var ingredientList: [Ingredient] = []
     var categoryName: String = ""
     
     let columns = [
@@ -46,7 +45,7 @@ struct IngredientListView: View {
                         }
                     }
                     
-                    ForEach(ingredientList) { item in
+                    ForEach(ingredientListVM.ingredientList) { item in
                         let isActive = self.selectedIngredients.contains(item)
                         
                         IngredientPlanItem(ingredient: item, isActive: isActive) {
@@ -85,6 +84,9 @@ struct IngredientListView: View {
                 .sheet(isPresented: $ingredientListVM.isSheetActive) {
                     InputIngredientView(categoryTitle: categoryName)
                 }
+            }
+            .onAppear {
+                self.ingredientListVM.categoryName = categoryName
             }
             .padding(.horizontal)
             .background(Color.lightGray)

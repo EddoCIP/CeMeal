@@ -14,6 +14,9 @@ struct CeMealApp: App {
     @StateObject var ingredientCategoryVM: IngredientCategoryViewModel = .init()
     @StateObject var inputIngredientVM: InputIngredientViewModel = .init()
     @StateObject var groceryVM: GroceryViewModel = .init()
+    @StateObject var groceryItemVM: GroceryItemViewModel = .init()
+    @StateObject var storageVM: StorageViewModel = .init()
+    @StateObject var storageListVM: StorageListViewModel = .init()
 
     var body: some Scene {
         WindowGroup {
@@ -23,6 +26,9 @@ struct CeMealApp: App {
                 .environmentObject(ingredientCategoryVM)
                 .environmentObject(inputIngredientVM)
                 .environmentObject(groceryVM)
+                .environmentObject(groceryItemVM)
+                .environmentObject(storageVM)
+                .environmentObject(storageListVM)
 //            LocalNotification()
         }
     }

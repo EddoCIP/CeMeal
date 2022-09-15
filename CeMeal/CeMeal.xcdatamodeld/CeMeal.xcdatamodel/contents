@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="ConsumedIngredient" representedClassName="ConsumedIngredient" syncable="YES" codeGenerationType="class">
+    <entity name="ConsumedIngredient" representedClassName="ConsumedIngredient" syncable="YES">
         <attribute name="consumedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -32,7 +32,7 @@
         <attribute name="storedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="storedIngredient" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ingredient" inverseName="ingredientToStorage" inverseEntity="Ingredient"/>
     </entity>
-    <entity name="TrashedIngredient" representedClassName="TrashedIngredient" syncable="YES" codeGenerationType="class">
+    <entity name="TrashedIngredient" representedClassName="TrashedIngredient" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="trashedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

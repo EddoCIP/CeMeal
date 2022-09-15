@@ -40,5 +40,18 @@ extension Storage {
 }
 
 extension Storage : Identifiable {
-
+    static func getStorages() -> [Storage] {
+        let context = PersistenceController.shared.container.viewContext
+        let request = NSFetchRequest<Storage>(entityName: "Storage")
+        request.sortDescriptors = []
+        request.shouldRefreshRefetchedObjects = true
+        
+        do {
+            return try context.fetch(request)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return []
+    }
 }

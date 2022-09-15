@@ -104,6 +104,28 @@ extension Ingredient : Identifiable {
         return []
     }
     
+    static func getIngredientsByCategory(category: String) -> [Ingredient] {
+        let context = PersistenceController.shared.container.viewContext
+        let request = NSFetchRequest<Ingredient>(entityName: "Ingredient")
+        request.sortDescriptors = []
+        request.shouldRefreshRefetchedObjects = true
+        
+        if !category.isEmpty {
+            var predicate: NSPredicate
+            
+            predicate = NSPredicate(format: "category CONTAINS[c] %@", argumentArray: [category])
+            request.predicate = predicate
+        }
+        
+        do {
+            return try context.fetch(request)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
+        return []
+    }
+    
     static func saveIngredient(category: String, inputName: String, imageUrl: String) {
         let context = PersistenceController.shared.container.viewContext
         

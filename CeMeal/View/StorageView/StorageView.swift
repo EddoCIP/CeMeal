@@ -8,12 +8,7 @@
 import SwiftUI
 
 struct StorageView: View {
-    @StateObject var storageVM : StorageViewModel = .init()
-    @FetchRequest(sortDescriptors: []) var storageList : FetchedResults <Storage>
-    @FetchRequest(sortDescriptors: []) var consumeList : FetchedResults <ConsumedIngredient>
-    @FetchRequest(sortDescriptors: []) var trashList : FetchedResults <TrashedIngredient>
-    
-    @State private var isShowSheet: Bool = false
+    @EnvironmentObject var storageVM : StorageViewModel
     
     let rows = [
         GridItem(.flexible(minimum: 230, maximum: 300))
@@ -34,7 +29,7 @@ struct StorageView: View {
                             .foregroundColor(Color.lighterOrange)
                         Spacer()
                         Button {
-                            isShowSheet.toggle()
+                            self.storageVM.isShowSheet.toggle()
                         } label: {
                             Text("view all ingredients")
                                 .font(.custom("SF Pro Display", size: 13))
@@ -68,19 +63,15 @@ struct StorageView: View {
                             .cornerRadius(20)
                             .padding(.horizontal)
                     }
-//                    .padding(.horizontal)
-                    
                 }
                 .navigationBarTitleDisplayMode(.inline)
+//                .navigationBarHidden(true)
                 .padding(.horizontal)
                 .padding(.bottom, 20)
-                .sheet(isPresented: $isShowSheet) {
-                    StorageListView(storageVM: storageVM)
+                .sheet(isPresented: $storageVM.isShowSheet) {
+                    StorageListView()
                 }
             }
-        }
-        .onAppear {
-//            storageVM.loadStorage()
         }
     }
     
@@ -132,7 +123,7 @@ struct StorageView: View {
             .padding(.leading, 15)
             .padding(.top, 10)
             
-            if consumeList.isEmpty && trashList.isEmpty {
+            if storageVM.consumeList.isEmpty && storageVM.trashList.isEmpty {
                 VStack(alignment: .center) {
                     Spacer()
                     Text("no food history")
@@ -159,12 +150,12 @@ struct StorageView: View {
                 .padding(.bottom)
             }
         }
-//        .padding(.bottom, 15)
     }
 }
 
 struct StorageView_Previews: PreviewProvider {
     static var previews: some View {
-        StorageView(storageVM: StorageViewModel())
+        StorageView()
+            .environmentObject(StorageViewModel())
     }
 }

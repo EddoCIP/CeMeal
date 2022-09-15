@@ -55,16 +55,4 @@ class GroceryViewModel: ObservableObject {
         
         PersistenceController.shared.saveContext()
     }
-    
-    func increaseQuantity(grocery: Grocery) {
-        grocery.quantity += 1
-        
-        PersistenceController.shared.saveContext()
-    }
-    
-    func decreaseQuantity(grocery: Grocery) {
-        grocery.quantity -= 1
-        
-        PersistenceController.shared.saveContext()
-    }
 }

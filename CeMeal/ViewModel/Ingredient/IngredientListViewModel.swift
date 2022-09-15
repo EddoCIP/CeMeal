@@ -16,6 +16,11 @@ class IngredientListViewModel: ObservableObject {
     
     @Published var inputName: String = ""
     @Published var isSheetActive: Bool = false
+    @Published var categoryName: String = "" {
+        didSet {
+            loadIngredient()
+        }
+    }
     
     private var cancellable: AnyCancellable?
     
@@ -29,7 +34,7 @@ class IngredientListViewModel: ObservableObject {
     }
     
     func loadIngredient() {
-        ingredientList = Ingredient.getIngredients(queryName: searchQuery)
+        ingredientList = Ingredient.getIngredientsByCategory(category: categoryName)
     }
     
     func saveIngredientsToGrocery(ingredients: [Ingredient]) {

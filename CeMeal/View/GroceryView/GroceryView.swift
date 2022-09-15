@@ -68,7 +68,7 @@ struct GroceryView: View {
                     VStack {
                         List {
                             ForEach(self.groceryVM.groceries) { item in
-                                GroceryItemView(grocery: item, doneGroceries: $groceryVM.doneGroceries, isSettingActive: $groceryVM.isSettingActive, groceryVM: groceryVM)
+                                GroceryItemView(grocery: item, doneGroceries: $groceryVM.doneGroceries, isSettingActive: $groceryVM.isSettingActive)
                                     .swipeActions {
                                         Button(role: .destructive, action: {
                                             groceryVM.removeIngredientFromGrocery(grocery: item)

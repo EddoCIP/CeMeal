@@ -30,7 +30,7 @@ struct IngredientCategoryView: View {
                         let items = self.ingredientCategoryVM.groupedIngredientByCategory[category.rawValue] ?? []
                         IngredientCategoryItem(title: category.rawValue, count: items.count)
                             .onTapGesture {
-                                self.ingredientCategoryVM.groupItem = items
+//                                self.ingredientCategoryVM.groupItem = items
                                 self.ingredientCategoryVM.groupCategory = category.rawValue
                                 ingredientCategoryVM.isSheetActive.toggle()
                             }
@@ -41,7 +41,7 @@ struct IngredientCategoryView: View {
         .searchable(text: $ingredientCategoryVM.searchQuery, placement: .navigationBarDrawer(displayMode: .always), prompt: "What ingredients do you need?")
         .padding(.horizontal)
         .sheet(isPresented: $ingredientCategoryVM.isSheetActive) {
-            IngredientListView(selectedIngredients: $ingredientCategoryVM.selectedIngredient, ingredientList: ingredientCategoryVM.groupItem, categoryName: ingredientCategoryVM.groupCategory)
+            IngredientListView(selectedIngredients: $ingredientCategoryVM.selectedIngredient, categoryName: ingredientCategoryVM.groupCategory)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {

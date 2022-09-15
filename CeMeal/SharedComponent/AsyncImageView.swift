@@ -11,11 +11,13 @@ struct AsyncImageView: View {
     var imageUrl: String
     
     var body: some View {
-        AsyncImage(url: URL(string: imageUrl)) { phase in
-            if let image = phase.image {
-                image.resizable()
-            } else if phase.error != nil {
-                if imageUrl.count != 0 {
+        if imageUrl.isEmpty {
+            Color.white
+        } else {
+            AsyncImage(url: URL(string: imageUrl)) { phase in
+                if let image = phase.image {
+                    image.resizable()
+                } else if phase.error != nil {
                     let pngURL = URL(fileURLWithPath: imageUrl)
                     if let data = try? Data(contentsOf: pngURL, options: [.mappedIfSafe, .uncached]) {
                         Image(uiImage: UIImage(data: data)!)
@@ -24,10 +26,8 @@ struct AsyncImageView: View {
                         Color.white
                     }
                 } else {
-                    Color.white
+                    ProgressView()
                 }
-            } else {
-                ProgressView()
             }
         }
     }

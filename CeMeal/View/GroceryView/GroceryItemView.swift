@@ -13,9 +13,9 @@ struct GroceryItemView: View {
     var grocery: Grocery
     @Binding var doneGroceries: [Grocery]
     @Binding var isSettingActive: Bool
-    @State var showStepper: Bool = false
+    @EnvironmentObject var groceryItemVM: GroceryItemViewModel
     
-    @ObservedObject var groceryVM : GroceryViewModel
+    let impactMed = UIImpactFeedbackGenerator(style: .medium)
     
     var body: some View {
         ZStack {
@@ -49,22 +49,17 @@ struct GroceryItemView: View {
                             .frame(width: 69, height: 34)
                             .overlay(Text("\(grocery.quantity)")
                                 .fontWeight(.bold))
-                            .padding(showStepper ? .horizontal : .all)
+                            .padding(self.groceryItemVM.showStepper ? .horizontal : .all)
                             .onTapGesture {
-                                showStepper.toggle()
+                                self.groceryItemVM.showStepper.toggle()
                             }
-//                            .shadow(radius: 2)
-                        if showStepper {
+                        if self.groceryItemVM.showStepper {
                             StepperGrocery {
-                                let impactMed = UIImpactFeedbackGenerator(style: .medium)
-                                    impactMed.impactOccurred()
                                 impactMed.impactOccurred()
-                                groceryVM.decreaseQuantity(grocery: grocery)
+                                groceryItemVM.decreaseQuantity(grocery: grocery)
                             } onIncrease: {
-                                let impactMed = UIImpactFeedbackGenerator(style: .medium)
-                                    impactMed.impactOccurred()
                                 impactMed.impactOccurred()
-                                groceryVM.increaseQuantity(grocery: grocery)
+                                groceryItemVM.increaseQuantity(grocery: grocery)
                             }
                         }
                     }
@@ -109,7 +104,7 @@ struct GroceryItem_Previews: PreviewProvider {
     static var previews: some View {
         GroceryItemView(grocery: Grocery(context: PersistenceController.preview.container.viewContext),
                     doneGroceries: .constant([]),
-                    isSettingActive: .constant(true),
-                    groceryVM: .init())
+                    isSettingActive: .constant(true))
+        .environmentObject(GroceryItemViewModel())
     }
 }

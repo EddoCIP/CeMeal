@@ -9,14 +9,14 @@ import SwiftUI
 
 struct StorageListView: View {
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var storageVM: StorageViewModel
+    @EnvironmentObject var storageListVM: StorageListViewModel
     
     var body: some View {
         NavigationView {
             List {
-                if !storageVM.mustThrowIngredient.isEmpty {
+                if !storageListVM.mustThrowIngredient.isEmpty {
                     Section {
-                        generateSectionContent(items: storageVM.mustThrowIngredient)
+                        generateSectionContent(items: storageListVM.mustThrowIngredient)
                     } header: {
                         HStack {
                             Image(systemName: "exclamationmark.circle.fill")
@@ -32,9 +32,9 @@ struct StorageListView: View {
                     .listRowInsets(.init(top: 2, leading: 2, bottom: 2, trailing: 2))
                 }
                 
-                if !storageVM.safeToConsumeIngredient.isEmpty {
+                if !storageListVM.safeToConsumeIngredient.isEmpty {
                     Section {
-                        generateSectionContent(items: storageVM.safeToConsumeIngredient)
+                        generateSectionContent(items: storageListVM.safeToConsumeIngredient)
                     } header: {
                         HStack {
                             Image(systemName: "fork.knife.circle.fill")
@@ -49,9 +49,9 @@ struct StorageListView: View {
                     .listRowInsets(.init(top: 2, leading: 2, bottom: 2, trailing: 2))
                 }
                 
-                if !storageVM.freshIngredient.isEmpty {
+                if !storageListVM.freshIngredient.isEmpty {
                     Section {
-                        generateSectionContent(items: storageVM.freshIngredient)
+                        generateSectionContent(items: storageListVM.freshIngredient)
                     } header: {
                         HStack {
                             Image(systemName: "leaf.circle.fill")
@@ -93,7 +93,7 @@ struct StorageListView: View {
                 .clipShape(RoundedCorner(radius: 7, corners: .allCorners))
                 .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                     Button {
-                        storageVM.moveToConsumed(storage: item)
+                        storageListVM.moveToConsumed(storage: item)
                     } label: {
                         VStack {
                             Image(systemName: "fork.knife")
@@ -103,7 +103,7 @@ struct StorageListView: View {
                     .tint(Color.green)
                     
                     Button(role: .destructive, action: {
-                        storageVM.moveToThrashed(storage: item)
+                        storageListVM.moveToThrashed(storage: item)
                     }, label: {
 //                        VStack {
 //                            Image(systemName: "trash")
@@ -125,6 +125,7 @@ struct StorageListView: View {
 
 struct StorageListView_Previews: PreviewProvider {
     static var previews: some View {
-        StorageListView(storageVM: .init())
+        StorageListView()
+            .environmentObject(StorageListViewModel())
     }
 }
