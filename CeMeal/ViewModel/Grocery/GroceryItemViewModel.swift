@@ -8,8 +8,6 @@
 import Foundation
 
 class GroceryItemViewModel: ObservableObject {
-    @Published var showStepper: Bool = false
-    
     func increaseQuantity(grocery: Grocery) {
         grocery.quantity += 1
         
@@ -17,8 +15,10 @@ class GroceryItemViewModel: ObservableObject {
     }
     
     func decreaseQuantity(grocery: Grocery) {
-        grocery.quantity -= 1
-        
-        PersistenceController.shared.saveContext()
+        if grocery.quantity > 0 {
+            grocery.quantity -= 1
+            
+            PersistenceController.shared.saveContext()
+        }
     }
 }

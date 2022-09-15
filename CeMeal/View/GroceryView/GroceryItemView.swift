@@ -15,6 +15,8 @@ struct GroceryItemView: View {
     @Binding var isSettingActive: Bool
     @EnvironmentObject var groceryItemVM: GroceryItemViewModel
     
+    @State private var showStepper: Bool = false
+    
     let impactMed = UIImpactFeedbackGenerator(style: .medium)
     
     var body: some View {
@@ -49,11 +51,11 @@ struct GroceryItemView: View {
                             .frame(width: 69, height: 34)
                             .overlay(Text("\(grocery.quantity)")
                                 .fontWeight(.bold))
-                            .padding(self.groceryItemVM.showStepper ? .horizontal : .all)
+                            .padding(self.showStepper ? .horizontal : .all)
                             .onTapGesture {
-                                self.groceryItemVM.showStepper.toggle()
+                                self.showStepper.toggle()
                             }
-                        if self.groceryItemVM.showStepper {
+                        if self.showStepper {
                             StepperGrocery {
                                 impactMed.impactOccurred()
                                 groceryItemVM.decreaseQuantity(grocery: grocery)

@@ -14,5 +14,7 @@ class InputIngredientViewModel: ObservableObject {
     
     func saveIngredient(category: String, inputName: String, imageUrl: String) {
         Ingredient.saveIngredient(category: category, inputName: inputName, imageUrl: imageUrl)
+        self.inputName = ""
+        self.imageUrl = ""
     }
 }

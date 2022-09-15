@@ -14,7 +14,6 @@ class IngredientListViewModel: ObservableObject {
     @Published var searchResult : [Ingredient] = []
     @Published var searchQuery : String = ""
     
-    @Published var inputName: String = ""
     @Published var isSheetActive: Bool = false
     @Published var categoryName: String = "" {
         didSet {

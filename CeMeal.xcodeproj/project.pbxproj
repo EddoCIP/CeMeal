@@ -14,7 +14,7 @@
 		2E5E643828B38F23003759EC /* IngredientlistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643728B38F23003759EC /* IngredientlistCell.swift */; };
 		2E5E643C28B3BDCF003759EC /* StepperGrocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */; };
 		FD1C233A28D2FCB8001EEDF1 /* StorageListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1C233928D2FCB8001EEDF1 /* StorageListViewModel.swift */; };
-		FD1C233C28D2FF5F001EEDF1 /* ingredient.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD1C233B28D2FF5F001EEDF1 /* ingredient.csv */; };
+		FD1C233C28D2FF5F001EEDF1 /* ingredients.csv in Resources */ = {isa = PBXBuildFile; fileRef = FD1C233B28D2FF5F001EEDF1 /* ingredients.csv */; };
 		FD3BF8FB28D227B10065BF09 /* Grocery+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BF8F928D227B10065BF09 /* Grocery+CoreDataClass.swift */; };
 		FD3BF8FC28D227B10065BF09 /* Grocery+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BF8FA28D227B10065BF09 /* Grocery+CoreDataProperties.swift */; };
 		FD64181028B5383E003972F7 /* ConsumedIngredientSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD64180F28B5383D003972F7 /* ConsumedIngredientSummary.swift */; };
@@ -73,7 +73,7 @@
 		2E5E643728B38F23003759EC /* IngredientlistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientlistCell.swift; sourceTree = "<group>"; };
 		2E5E643B28B3BDCF003759EC /* StepperGrocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperGrocery.swift; sourceTree = "<group>"; };
 		FD1C233928D2FCB8001EEDF1 /* StorageListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageListViewModel.swift; sourceTree = "<group>"; };
-		FD1C233B28D2FF5F001EEDF1 /* ingredient.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ingredient.csv; sourceTree = "<group>"; };
+		FD1C233B28D2FF5F001EEDF1 /* ingredients.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ingredients.csv; sourceTree = "<group>"; };
 		FD3BF8F928D227B10065BF09 /* Grocery+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Grocery+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FD3BF8FA28D227B10065BF09 /* Grocery+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Grocery+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FD64180F28B5383D003972F7 /* ConsumedIngredientSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumedIngredientSummary.swift; sourceTree = "<group>"; };
@@ -279,7 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				FDF5320328AE44E8006CC337 /* DataInitialization.swift */,
-				FD1C233B28D2FF5F001EEDF1 /* ingredient.csv */,
+				FD1C233B28D2FF5F001EEDF1 /* ingredients.csv */,
 				FDF5320F28AE542F006CC337 /* Extension.swift */,
 				FDF5321328AE8E16006CC337 /* Enums.swift */,
 				FD84BF7828B63BC200AAACC4 /* Helper.swift */,
@@ -386,7 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDAA35F828B3600C006FD911 /* NewYorkItalic.ttf in Resources */,
-				FD1C233C28D2FF5F001EEDF1 /* ingredient.csv in Resources */,
+				FD1C233C28D2FF5F001EEDF1 /* ingredients.csv in Resources */,
 				FDF531E428AE3CBA006CC337 /* Preview Assets.xcassets in Resources */,
 				FDF531E128AE3CBA006CC337 /* Assets.xcassets in Resources */,
 				FDAA35F728B3600C006FD911 /* NewYork.ttf in Resources */,
@@ -461,6 +461,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -521,6 +522,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -577,7 +579,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"CeMeal/Preview Content\"";
 				DEVELOPMENT_TEAM = FANN368M5W;
 				ENABLE_PREVIEWS = YES;
@@ -611,7 +613,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"CeMeal/Preview Content\"";
 				DEVELOPMENT_TEAM = FANN368M5W;
 				ENABLE_PREVIEWS = YES;

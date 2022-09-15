@@ -8,17 +8,14 @@
 import SwiftUI
 
 struct TabbedView: View {
-    @FetchRequest(sortDescriptors: []) var ingredients : FetchedResults <Ingredient>
+    @EnvironmentObject var ingredientVM: IngredientListViewModel
     
     @State private var selection: Int = 0
     
     init() {
-        let tabBarAppearance = UITabBarAppearance()
-        tabBarAppearance.shadowColor = .gray
-        tabBarAppearance.selectionIndicatorTintColor = UIColor(Color.darkGreen)
-        tabBarAppearance.backgroundColor = .white
-        UITabBar.appearance().standardAppearance = tabBarAppearance
-        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
+        UITabBar.appearance().backgroundColor = .white
+//        UITabBar.appearance().unselectedItemTintColor = .systemCyan
+        UITabBar.appearance().isOpaque = false
     }
     
     var body: some View {
@@ -37,9 +34,8 @@ struct TabbedView: View {
                 }
                 .tag(1)
         }
-        .tint(Color.darkerGreen)
         .onAppear {
-            if ingredients.isEmpty {
+            if ingredientVM.ingredientList.isEmpty {
                 loadIngredientFromCSV()
 //                loadIngredientToStorage()
 //                setTrashedIngredient()
@@ -51,5 +47,8 @@ struct TabbedView: View {
 struct TabbedView_Previews: PreviewProvider {
     static var previews: some View {
         TabbedView()
+            .environmentObject(IngredientListViewModel())
+            .environmentObject(StorageViewModel())
+            .environmentObject(GroceryViewModel())
     }
 }

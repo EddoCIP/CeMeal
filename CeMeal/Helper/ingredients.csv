@@ -73,13 +73,13 @@ Animal Products,Daging Kambing,Lamb,54,60,https://images.unsplash.com/photo-1602
 Animal Products,Daging Ayam,Chicken meat,54,60,https://images.unsplash.com/photo-1633096013004-e2cb4023b560?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2832&q=80
 Animal Products,Telur Puyuh,Quail eggs,10,14,https://images.freeimages.com/images/large-previews/4c8/quail-eggs-1148284.jpg
 Animal Products,Telur Ayam,Chicken eggs,10,14,https://img.freepik.com/free-photo/three-fresh-organic-raw-eggs-isolated-white-surface_114579-43677.jpg?w=2000&t=st=1661066115~exp=1661066715~hmac=0b37ff4dcb19b9ea8db2e4f4f756a3782a971051f9af055b4b5b89f2db371e9d
-Milk and dairy products,Keju,Cheese,54,60,https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80
-Milk and dairy products,Susu,Milk,7,10,https://img.freepik.com/free-photo/glasses-milk-gray-table_114579-62816.jpg?w=2000&t=st=1661066224~exp=1661066824~hmac=3298de5d5ccb11ac08d3f832948eaedc8bc8429c8facc6fbc7cba591c8129cf7
-Milk and dairy products,Yogurt,Yogurt,2,3,https://img.freepik.com/free-photo/close-up-fresh-yogurt-with-organic-milk_23-2148610587.jpg?w=1800&t=st=1661066252~exp=1661066852~hmac=8eb4b6ccaf4d723206e3ecb04110affcc537a2fc81e3a0ed4b50eb17cd53ee0c
-Milk and dairy products,Mentega,Butter,54,60,https://img.freepik.com/free-vector/butter-curl-swirls-3d-vector-illustration_107791-12333.jpg?w=2000&t=st=1661066313~exp=1661066913~hmac=ff60c6804c41dce27274039d64fb06630c478ef5df7f7417ffbc16ab33a1f7eb
-Milk and dairy products,Susu Kental Manis,Sweetened condensed milk,89,95,https://img.freepik.com/free-photo/side-view-hand-holding-wooden-spoon-with-condensed-milk-it-glass-milk-cutting-board-cream-egg-yogurt-soup-blue-surface_141793-11447.jpg?w=900&t=st=1661066286~exp=1661066886~hmac=a99aa72b4e86a21709cccae5e16588fe198eb1e1ab5c2662918fa9da57a0bdd1
-Milk and dairy products,Es Krim,Ice cream,330,360,https://img.freepik.com/premium-photo/various-ice-cream-flavor-ball-isolate-white-background_35641-3050.jpg?w=2000
-Milk and dairy products,Krim,Cream,330,360,https://www.pngfind.com/pngs/m/23-239217_whip-cream-png-whipped-cream-transparent-png-png.png
+Milk and Dairy,Keju,Cheese,54,60,https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2073&q=80
+Milk and Dairy,Susu,Milk,7,10,https://img.freepik.com/free-photo/glasses-milk-gray-table_114579-62816.jpg?w=2000&t=st=1661066224~exp=1661066824~hmac=3298de5d5ccb11ac08d3f832948eaedc8bc8429c8facc6fbc7cba591c8129cf7
+Milk and Dairy,Yogurt,Yogurt,2,3,https://img.freepik.com/free-photo/close-up-fresh-yogurt-with-organic-milk_23-2148610587.jpg?w=1800&t=st=1661066252~exp=1661066852~hmac=8eb4b6ccaf4d723206e3ecb04110affcc537a2fc81e3a0ed4b50eb17cd53ee0c
+Milk and Dairy,Mentega,Butter,54,60,https://img.freepik.com/free-vector/butter-curl-swirls-3d-vector-illustration_107791-12333.jpg?w=2000&t=st=1661066313~exp=1661066913~hmac=ff60c6804c41dce27274039d64fb06630c478ef5df7f7417ffbc16ab33a1f7eb
+Milk and Dairy,Susu Kental Manis,Sweetened condensed milk,89,95,https://img.freepik.com/free-photo/side-view-hand-holding-wooden-spoon-with-condensed-milk-it-glass-milk-cutting-board-cream-egg-yogurt-soup-blue-surface_141793-11447.jpg?w=900&t=st=1661066286~exp=1661066886~hmac=a99aa72b4e86a21709cccae5e16588fe198eb1e1ab5c2662918fa9da57a0bdd1
+Milk and Dairy,Es Krim,Ice cream,330,360,https://img.freepik.com/premium-photo/various-ice-cream-flavor-ball-isolate-white-background_35641-3050.jpg?w=2000
+Milk and Dairy,Krim,Cream,330,360,https://www.pngfind.com/pngs/m/23-239217_whip-cream-png-whipped-cream-transparent-png-png.png
 Mushrooms,Jamur Tiram,Oyster mushroom,3,5,https://img.pikbest.com/png-images/qianku/oyster-mushroom_2337243.png!bw700
 Mushrooms,Jamur Kancing,Button mushrooms,4,6,https://cdn.pixabay.com/photo/2021/10/31/14/45/mushrooms-6757668_1280.jpg
 Mushrooms,Jamur Portabella,Portabella mushrooms,5,7,https://cdn.pixabay.com/photo/2017/01/24/22/49/portobello-2006620_1280.png
